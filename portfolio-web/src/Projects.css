@@ -1,0 +1,169 @@
+.body1 {
+    background-color: #040404;
+    font-family: 'Inter', "Roboto", sans-serif;
+  }
+
+    h3 {
+        font-size: 28px;
+        font-weight: 400;
+        color:white;
+        font-family:"Roboto";
+        text-align: justify;
+    }
+  
+    .header {
+        position: absolute;
+        height: 10vh;
+        width: 100vw;
+        position: fixed;
+        background-color: #040404;
+        z-index: 2;
+    }
+        .header-inactive {
+            position: absolute;
+            height: 10vh;
+            width: 100vw;
+            position: fixed;
+            background-color: #040404;
+            z-index: 0;
+        }
+
+    .container {
+        display: flex;
+        flex-direction: row;
+    }	
+    
+    .left-container {
+        display: flex; 
+        height: 100vh;
+        width: 30vw;
+        justify-content: center;
+        align-items: center;
+        gap: 3vw;
+        position: fixed;
+        z-index: 1;
+    }
+  
+        .menu {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 3vw;
+        }
+        
+            .menu a {
+                text-decoration: none;
+                color: #636363;
+                cursor: pointer;
+                position: relative;
+            }
+
+            .menu a::after {
+                content: '';
+                position: absolute;
+                bottom: 2px;
+                left: 0;
+                width: 100%;
+                height: 2px;
+                background-color: #636363;
+            }
+
+            .menu a:hover h1 {
+                color: white;
+                font-weight: bold;
+                transition: color 0.3s ease, font-weight 0.3s ease;
+            }
+
+            .menu a:hover::after {
+                background-color: white;
+                transition: background-color 0.3s ease;
+            }
+            
+            .menu a h1 {
+                font-weight: normal;
+                font-size: 18px;
+            }
+
+            .menu a.hovered h1 {
+                color: white;
+                font-weight: bold;
+                transition: color 0.3s ease, font-weight 0.3s ease;
+            }
+              
+            .menu a.hovered::after {
+                background-color: white;
+                transition: background-color 0.3s ease;
+            }
+        
+        .progress-bar {
+            height: 70vh;
+            width: 5px;
+            background-color: #636363;
+        }
+
+        .progress {
+            width: 5px;
+            background-color: white;
+        }
+
+    .right-container {
+        width: 60vw;
+        margin-left: 30vw;
+        margin-top: 15vh;
+        z-index: 1;
+    }
+        #section1 {
+            height: auto;
+        }
+        #section2 {
+            height: auto;
+        }
+        #section3 {
+            height: auto;
+        }
+            #zone-container {
+                display: flex;
+                flex-direction: row;
+                justify-content: center;
+                align-items: center;
+                gap: 3vw;
+            }	
+
+                #zone-logo {
+                    align-content: center;
+                }
+                
+        #section4 {
+            height: 110vh;
+        }
+
+    .back-image {
+        position: fixed;
+        top: 70%;
+        filter: blur(200px);
+        width: 150%;
+        opacity: 0;
+        transition: opacity 1s ease;
+    }
+        
+        .back-image.visible {
+            opacity: 1;
+            transition: all 1s ease;
+        }
+
+        .back-image.full {
+            top: -30%;
+            transition: all 1s ease;
+        }
+    .image-sequence-active {
+        opacity: 1;
+        transition: opacity 0.5s ease;
+        z-index: 1;
+        visibility: visible;
+    }
+    .image-sequence-inactive {
+        opacity: 0;
+        visibility: hidden;
+        transition: opacity 0.5s ease;
+        position: relative;
+    }	

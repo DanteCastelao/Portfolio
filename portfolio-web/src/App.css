@@ -1,0 +1,55 @@
+.app {
+  display: flex;
+  height: 100vh;
+  position: relative;
+  font-family: 'Inter', sans-serif;
+}
+
+.body {
+  background-color: #040404;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  flex: 1;
+  height: 100%;
+}
+
+.container1 {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  gap: 3vw;
+}
+
+.container1 a {
+  text-decoration: none;
+  color: white;
+  position: relative;
+}
+
+.container1 a h1 {
+  color: white;
+  font-weight: normal;
+  text-align: center;
+  font-size: 18px;
+}
+
+.container1 a::after {
+  content: '';
+  position: absolute;
+  bottom: 2px;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  background-color: white;
+}
+
+.container1 a:hover h1 {
+  font-weight: bold;
+  color: white;
+}
+
+.container1 a:hover ~ a:hover h1 {
+  color: gray;
+}

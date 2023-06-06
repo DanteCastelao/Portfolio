@@ -1,0 +1,44 @@
+.fullscreen-video {
+  position: fixed;
+  width: 100vw;
+  height: 100vh;
+  object-fit: cover;
+  opacity: 0;
+  top: 0;
+  left: 0;
+  transition: opacity 0.3s ease-in-out;
+  z-index: -1;
+}
+  .fullscreen-video.active {
+    opacity: 1;
+    transition: opacity 0.3s ease-in-out;
+    z-index: 1;
+  }
+
+.step {
+  height: auto;
+  width: 100%;
+  display: flex;
+}
+
+#box {
+  margin-top: 10vh;
+  height: 10vh;
+}
+
+.button {
+  height: 10vh;
+  width: 10vh;
+  border-radius: 50%;
+  position: fixed;
+  opacity: 0;
+  transition: opacity 0.3s ease-in-out;
+  z-index: -1;
+  top: 0;
+  left: 0;
+}
+  .button.active {
+    opacity: 1;
+    transition: opacity 0.3s ease-in-out;
+    z-index: 2;
+  }
