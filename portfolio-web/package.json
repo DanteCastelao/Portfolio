@@ -19,7 +19,6 @@
     "react-scripts": "5.0.1",
     "react-scroll": "^1.8.9",
     "react-scrollama": "^2.3.2",
-    "react-video-scroll": "^1.0.1",
     "scrolly-video": "^0.0.15",
     "web-vitals": "^2.1.4"
   },
@@ -46,5 +45,8 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+  },
+  "devDependencies": {
+    "tailwindcss": "^3.3.2"
   }
 }

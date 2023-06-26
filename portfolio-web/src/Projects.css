@@ -17,6 +17,7 @@
         width: 100vw;
         position: fixed;
         background-color: #040404;
+        transition: 2s ease;
         z-index: 2;
     }
         .header-inactive {
@@ -26,6 +27,16 @@
             position: fixed;
             background-color: #040404;
             z-index: 0;
+        }
+
+        .header-contrast {
+            position: absolute;
+            height: 10vh;
+            width: 100vw;
+            position: fixed;
+            background: linear-gradient(to bottom, rgba(0, 0, 0, 0.4) 20%, transparent);
+            transition: 0.5s ease;
+            z-index: 2;
         }
 
     .container {
@@ -84,10 +95,26 @@
                 font-size: 18px;
             }
 
-            .menu a.hovered h1 {
+            .menu a.active h1 {
                 color: white;
                 font-weight: bold;
                 transition: color 0.3s ease, font-weight 0.3s ease;
+            }
+              
+            .menu a.active::after {
+            background-color: white;
+            transition: background-color 0.3s ease;
+            }
+
+            .menu a.contrast h1 {
+                color: #b9b9b9;
+                font-weight: bold;
+                transition: color 0.3s ease, font-weight 0.3s ease;
+            }
+              
+            .menu a.contrast::after {
+            background-color: #b9b9b9;
+            transition: background-color 0.3s ease;
             }
               
             .menu a.hovered::after {
@@ -95,16 +122,26 @@
                 transition: background-color 0.3s ease;
             }
         
-        .progress-bar {
-            height: 70vh;
-            width: 5px;
-            background-color: #636363;
+        .progress-container {
+            flex-direction: column;
         }
+        
+            .progress-bar {
+                height: 23vh;
+                width: 5px;
+                background-color: #636363;
+            }
+                .progress-bar-contrast {
+                    height: 23vh;
+                    width: 5px;
+                    background-color: #b9b9b9;
+                    transition: 1s ease;
+                }
 
-        .progress {
-            width: 5px;
-            background-color: white;
-        }
+                .progress {
+                    width: 5px;
+                    background-color: white;
+                }
 
     .right-container {
         width: 60vw;
@@ -118,6 +155,13 @@
         #section2 {
             height: auto;
         }
+
+            .button-inactive {
+                visibility: hidden;
+                opacity: 0;
+                transition: opacity 0.5s ease;
+            }
+
         #section3 {
             height: auto;
         }
@@ -136,12 +180,17 @@
         #section4 {
             height: 110vh;
         }
+        #section5 {
+            height: 75vh;
+        }
 
     .back-image {
         position: fixed;
         top: 70%;
         filter: blur(200px);
         width: 150%;
+        max-width: 150%;
+        transform: translate(-17.5%, 0%);
         opacity: 0;
         transition: opacity 1s ease;
     }
