@@ -2,7 +2,11 @@
 module.exports = {
   content: ["./src/**/*.{html,js}"],
   theme: {
-    extend: {},
+    fontFamily: {
+      Inter: ['Inter, sans-serif'],
+      Roboto: ['Roboto, sans-serif'],
+      Righteous: ['Righteous, sans-serif'],
+    }
   },
   plugins: [],
 }
