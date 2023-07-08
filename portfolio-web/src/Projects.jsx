@@ -9,8 +9,9 @@ function Projects() {
             <div className="w-[920px]">
                 <div className="flex h-[50px] items-center w-full flex-row justify-between rounded-[10px] bg-[#101010] p-4 mb-5">
                 </div>
-
                 <Grid/>
+                <div className="flex h-[50px] items-center w-full flex-row justify-between rounded-[10px] bg-[#101010] p-4 my-5">
+                </div>
             </div>
         </div>
     );
