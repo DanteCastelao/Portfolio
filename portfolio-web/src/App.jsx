@@ -12,17 +12,19 @@ const App = () => {
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
         <link href="https://fonts.googleapis.com/css2?family=Inter&display=swap" rel="stylesheet" />
       </head>
-      <div className="body">
-        <h1 style={{ color: 'white', fontWeight: 'normal', textAlign: 'center', fontSize: 18, marginTop: '5vh' }}>Dante Castelao</h1>
-        <div className="container1">
-          <a href="/projects">
-            <h1>projects</h1>
+      <div className="justify-between flex flex-col flex-1 my-[5vh]">
+        <p className='text-[#EAEAEA] font-Inter text-center'>Dante Castelao</p>
+        <div className="flex-row justify-center items-center gap-[3vw] flex">
+          <a href="/projects" className="relative text-white">
+            <h1 className="text-center text-lg hover:font-bold transition font-Inter">projects</h1>
+            <span className="block absolute bottom-0 left-0 w-full h-0.5 bg-white"></span>
           </a>
-          <a href="/about">
-            <h1>contact</h1>
+          <a href="/about" className="relative text-white">
+            <h1 className="text-center text-lg hover:font-bold transition font-Inter">contact</h1>
+            <span className="block absolute bottom-0 left-0 w-full h-0.5 bg-white"></span>
           </a>
         </div>
-        <h2 style={{ color: 'white', fontWeight: 'normal', textAlign: 'center', fontSize: 18, marginBottom: '5vh' }}>2023</h2>
+        <p className='text-center text-lg font-Inter'>2023</p>
       </div>
     </div>
   );

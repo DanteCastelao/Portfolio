@@ -37,11 +37,11 @@ const GridItem = ({ type, content }) => {
   if (content && content[iteration]) {
     return (
       <div
-        className={`${height} ${borderRadius} cursor-pointer bg-[#101010] overflow-hidden select-none`}
+        className={`${height} ${borderRadius} cursor-pointer bg-[#101010] transition-all duration-[600ms] overflow-hidden select-none`}
         onClick={handleClick}
       >
         {show && (
-          <div>
+          <div className='h-full'>
             {component}
           </div>
         )}
