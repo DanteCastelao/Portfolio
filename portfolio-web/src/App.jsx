@@ -5,7 +5,7 @@ import Marquee from "react-fast-marquee";
 
 const App = () => {
   return (
-    <div className="bg-grid bg-cover items-center flex flex-col md:h-[102vh]">
+    <div className="bg-grid bg-cover items-center flex flex-col">
       <div className="md:w-[920px] w-[95%] mx-2">
           <div className="flex items-center justify-center h-[50px] w-full rounded-[10px] bg-[#101010] p-4 mb-5 mt-2">
               <h1 className="text-white font-Inter my-5 md:text-base text-xl">Dante Castelao</h1>
