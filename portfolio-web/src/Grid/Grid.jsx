@@ -65,7 +65,7 @@ const Grid = () => {
           component: (
             <div className="relative h-full animate-fade-in">
               <img className="absolute z-0 h-full w-full" src={StaticLink3} alt='StaticLink3'/>
-              <div className="absolute bottom-32 left-1/2 transform -translate-x-1/2 z-10">
+              <div className="absolute md:bottom-32 bottom-16 left-1/2 transform -translate-x-1/2 z-10">
                 <a href='https://github.com/DanteCastelao/Static-Link' target="_blank" className="text-[#42429E] underline font-Inter md:text-lg text-2xl">visit&rarr;</a>
               </div>
             </div>
@@ -94,7 +94,7 @@ const Grid = () => {
           component: (
             <div className='relative h-full animate-fade-in'>
               <img className="absolute z-0 h-full w-full" src={API3} alt='API3'/>
-              <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 z-10">
+              <div className="absolute md:bottom-8 bottom-2 left-1/2 transform -translate-x-1/2 z-10">
                 <a href='https://github.com/DanteCastelao/task-manager-api' target="_blank" className="text-[#929292] underline font-Inter md:text-lg text-2xl">visit&rarr;</a>
               </div>
             </div>
