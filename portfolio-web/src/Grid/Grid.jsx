@@ -21,23 +21,23 @@ const Grid = () => {
         {
           component: (
             <div className="animate-fade-in">   
-              <img src={Zone1} alt='Zone1'/>
+              <img src={Zone1} className='h-full w-full' alt='Zone1'/>
             </div>
           )
         },
         {
           component: (
             <div className='animate-fade-in'>
-              <img src={Zone2}  alt='Zone2'/>
+              <img src={Zone2} className='h-full w-full'  alt='Zone2'/>
             </div>
           )
         },
         {
           component: (
             <div className="relative h-full animate-fade-in">
-              <img className="absolute z-0" src={Zone3}  alt='Zone3'/>
+              <img className="absolute z-0 h-full w-full" src={Zone3}  alt='Zone3'/>
               <div className="absolute bottom-24 left-1/2 transform -translate-x-1/2 z-10">
-                <a className="text-white underline font-Inter text-lg">visit&rarr;</a>
+                <a href='https://github.com/DanteCastelao/Zone' target="_blank" className="text-white underline font-Inter md:text-lg text-2xl">visit&rarr;</a>
               </div>
             </div>
           )
@@ -50,23 +50,23 @@ const Grid = () => {
         {
           component: (
             <div className='animate-fade-in'>
-              <img src={StaticLink1}  alt='StaticLink1'/>
+              <img src={StaticLink1} className='h-full w-full' alt='StaticLink1'/>
             </div>
           )
         },
         {
           component: (
             <div className='animate-fade-in'>
-              <img src={StaticLink2} alt='StaticLink2'/>
+              <img src={StaticLink2} className='h-full w-full' alt='StaticLink2'/>
             </div>
           )
         },
         {
           component: (
             <div className="relative h-full animate-fade-in">
-              <img className="absolute z-0" src={StaticLink3} alt='StaticLink3'/>
+              <img className="absolute z-0 h-full w-full" src={StaticLink3} alt='StaticLink3'/>
               <div className="absolute bottom-32 left-1/2 transform -translate-x-1/2 z-10">
-                <a className="text-[#42429E] underline font-Inter text-lg">visit&rarr;</a>
+                <a href='https://github.com/DanteCastelao/Static-Link' target="_blank" className="text-[#42429E] underline font-Inter md:text-lg text-2xl">visit&rarr;</a>
               </div>
             </div>
           )
@@ -79,23 +79,23 @@ const Grid = () => {
         {
           component: (
             <div className='animate-fade-in'>
-              <img src={API1} alt='API1'/>
+              <img src={API1} className='h-full w-full' alt='API1'/>
             </div>
           )
         },
         {
           component: (
             <div className='animate-fade-in'>
-              <img src={API2} alt='API2'/>
+              <img src={API2} className='h-full w-full' alt='API2'/>
             </div>
           )
         },
         {
           component: (
             <div className='relative h-full animate-fade-in'>
-              <img className="absolute z-0" src={API3} alt='API3'/>
+              <img className="absolute z-0 h-full w-full" src={API3} alt='API3'/>
               <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 z-10">
-                <a className="text-[#929292] underline font-Inter text-lg">visit&rarr;</a>
+                <a href='https://github.com/DanteCastelao/task-manager-api' target="_blank" className="text-[#929292] underline font-Inter md:text-lg text-2xl">visit&rarr;</a>
               </div>
             </div>
           )

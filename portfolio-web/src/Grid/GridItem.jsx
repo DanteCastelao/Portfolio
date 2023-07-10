@@ -27,11 +27,11 @@ const GridItem = ({ type, content }) => {
   }
 
   if (type === "type1") {
-    height = "h-[600px]";
+    height = "aspect-[3/4]";
   } else if (type === "type2") {
-    height = "h-[380px]";
+    height = "aspect-[45/38]";
   } else {
-    height = "h-[160px]";
+    height = "aspect-[2.8125]";
   }
 
   if (content && content[iteration]) {
