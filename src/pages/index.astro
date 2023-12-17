@@ -1,33 +1,32 @@
 ---
+import Marquees from '../components/Marquees';
 import Layout from '../layouts/Layout.astro';
 ---
 
 <Layout title="Dante Castelao">
-		<div class="container">
-			
-			<svg class="loading" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="100%" height="100%" viewBox="0 0 100% 110%" enable-background="new 0 0 100% 100%" xml:space="preserve">
+		<div class="start">
+			<svg width="1400px" height="100%">
 				<defs>
 					<linearGradient id="water-gradient" x1="0%" y1="0%" x2="100%" y2="0%">
-						<stop offset="19.85%" style="stop-color: rgba(137, 82, 224, 1)"/>
-						<stop offset="58.72%" style="stop-color: rgba(202, 74, 237, 1)"/>
-						<stop offset="97.58%" style="stop-color: rgba(74, 134, 232, 1)"/>
+						<stop offset="19.85%" style="stop-color: #8952E0"/>
+						<stop offset="58.72%" style="stop-color: #CA4AED"/>
+						<stop offset="97.58%" style="stop-color: #4A86E8"/>
 					</linearGradient>
 					<pattern id="water" width=".25" height="1.1" patternContentUnits="objectBoundingBox">
 						<path fill="#fff" d="M0.25,1H0c0,0,0-0.659,0-0.916c0.083-0.303,0.158,0.334,0.25,0C0.25,0.327,0.25,1,0.25,1z"/>
 					</pattern>
 					<mask id="text_mask">
-						<use x="8" y="0" xlink:href="#text-border" opacity="1"/>
-					</mask>
-					<mask id="rect_mask">
-						<use x="0" y="0" xlink:href="#rect" opacity="1"/>
+						<use x="0" y="0" xlink:href="#text-border" opacity="1"/>
 					</mask>
 				</defs>
-				<text x="50%" y="120" fill="#070707" stroke="#fff" stroke-width="18" class="title" id="text-border" text-anchor="middle" opacity="1">// DANTE CASTELAO</text>
-				<rect id="rect" class="water-fill" mask="url(#text_mask)" fill="url(#water)" x="-550" y="-17" width="2200" height="160" opacity="1"/>
-				<rect mask="url(#rect_mask)" fill="url(#water-gradient)" x="10%" width="80%" height="160" opacity="1"/>
-				<text x="50%" y="120" fill="#070707" class="title" id="text" text-anchor="middle" opacity="1">// DANTE CASTELAO</text>
+				<text x="50%" y="120" text-anchor="middle" fill="#070707" stroke="#fff" stroke-width="18" class="title" id="text-border" opacity="1">// DANTE CASTELAO</text>
+				<rect mask="url(#text_mask)" fill="url(#water-gradient)" x="0" width="100%" height="160" opacity="1"/>
+				<text x="50%" y="120" text-anchor="middle" fill="#070707" class="title" id="text" opacity="1">// DANTE CASTELAO</text>
 			</svg>
-			
+		</div>
+		<div class="marquees">
+			<Marquees client:only/>
+			<div class="light1"/>
 		</div>
 </Layout>
 
@@ -36,40 +35,37 @@ import Layout from '../layouts/Layout.astro';
 </script>
 
 <style>
-	.container {
+	.start {
 		display: flex;
 		height: 160px;
-		margin-top: 10rem;
+		margin-top: 15rem;
 		align-items: center;
 		justify-content: center;
-	}
-	.loading {
-		display: flex;
 	}
 	.title {
 		font-size: 8rem;
 		font-style: italic;
 		font-weight: 900;
+		text-align: center;
 	}
 	.water-fill {
 		animation: 	wave 1s infinite linear,
 				 	fill-up 7s ease-in; 
 	}
-
-	@keyframes wave {
-		0% { x: -550px; }
-		100% { x: 0; }
+	.marquees {
+		position: relative;
+		margin-top: 40rem;
 	}
-
-	@keyframes fill-up {
-		0% {
-			height: 0;
-			y: 143px;
-		}
-		100% {
-			height: 170px;
-			y: -17px;
-		}
+	.light1 {
+		position: absolute;
+		top: 0;
+		left: 50%;
+		transform: translate(-50%, 0);
+		background: linear-gradient(89deg, #8952E0 17.26%, #4A86E8 41.05%, #CA4AED 64.84%);
+		filter: blur(350px);
+		width: 80%;
+		height: 100%;
+		animation: light 5s infinite linear;
 	}
 
 
