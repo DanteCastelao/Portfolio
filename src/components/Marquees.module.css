@@ -5,7 +5,7 @@
     flex-direction: column;
 }
 
-span {
+.container span {
     font-size: 8rem;
     font-weight: 900;
     font-style: italic;

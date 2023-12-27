@@ -1,0 +1,209 @@
+---
+import Veigarv2Picture from '../assets/Veigarv2Picture.png'
+import ThreeDEPicture from '../assets/3DEPicture.png'
+import NomorePicture from '../assets/NomorePicture.png'
+import ZonePicture from '../assets/ZonePicture.png'
+---
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.css" />
+
+<script type="module">
+    import Swiper from 'https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.mjs'
+  
+    const swiper = new Swiper(".mySwiper", {
+        loop: true,
+        pagination: {
+        el: ".swiper-pagination",
+        },
+        autoplay: {
+            delay: 6000,
+            disableOnInteraction: false,
+        },
+        speed: 1000,
+        keyboard: true,
+    });
+</script>
+
+<div class="swiper mySwiper">
+    <div class="swiper-wrapper">
+        <div class="swiper-slide">
+            <span class="title-slide">Veigar <span class="violet">v2</span></span>
+            <div class="content">
+                <img src={Veigarv2Picture.src}>
+                <div class="info">
+                    <span class="violet">EXPLORE OUR INTEGRATED SOLUTIONS AND DISCOVER THE EXTENSIVE RANGE OF APPLICATIONS AVAILABLE HERE.</span>
+                    <a class="button"><span>VISIT SITE &rarr;</span></a>
+                </div>
+            </div>
+        </div>
+        <div class="swiper-slide">
+            <div class="head">
+                <span class="title-slide">3<span class="purple">DE</span></span>
+                <svg width="164" height="59" viewBox="0 0 164 59" class="stroke" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M5 21.8106C36.012 16.0222 66.9655 12.379 98.0443 10.0324C115.306 8.72914 132.572 7.90914 149.833 6.51751C152.706 6.28592 161.233 3.81038 158.449 5.71585C149.564 11.7978 137.052 12.4726 128.582 14.4107C97.5366 21.5145 66.3382 25.6431 35.3988 35.747C32.5021 36.693 29.6177 37.8997 26.7365 39.1386C25.0278 39.8733 23.1846 39.6279 21.6315 41.6669C20.935 42.5813 23.1425 42.7776 23.9184 42.8385C48.2277 44.7472 72.7214 40.7549 97.0279 39.2619C101.099 39.0118 112.704 35.5248 109.224 41.1736C105.139 47.8055 99.7507 50.1974 95.2262 54" stroke="#4F3BC4" stroke-width="10" stroke-linecap="round"/>
+                </svg> 
+            </div>
+            <div class="content">
+                <div class="info">
+                    <span>EXPLORE OUR INTEGRATED SOLUTIONS AND DISCOVER THE EXTENSIVE RANGE OF APPLICATIONS AVAILABLE HERE.</span>
+                    <a class="button2"><span>VISIT SITE &rarr;</span></a>
+                </div>
+                <img src={ThreeDEPicture.src}>
+            </div>
+        </div>
+        <div class="swiper-slide">
+            <span class="title2-slide">nomore</span>
+            <div class="content">
+                <img src={NomorePicture.src}>
+                <div class="info">
+                    <span>EXPLORE OUR INTEGRATED SOLUTIONS AND DISCOVER THE EXTENSIVE RANGE OF APPLICATIONS AVAILABLE HERE.</span>
+                    <a class="button3"><span>VISIT SITE &rarr;</span></a>
+                </div>
+            </div>
+        </div>
+        <div class="swiper-slide">
+            <span class="title3-slide">Zone</span>
+            <div class="content">
+                <div class="info">
+                    <span class="orange">EXPLORE OUR INTEGRATED SOLUTIONS AND DISCOVER THE EXTENSIVE RANGE OF APPLICATIONS AVAILABLE HERE.</span>
+                    <a class="button4"><span>VISIT SITE &rarr;</span></a>
+                </div>
+                <img src={ZonePicture.src}>
+            </div>
+        </div>
+    </div>
+    <div class="swiper-pagination"></div>
+</div>
+
+<style>
+    .swiper {
+        width: 100%;
+        height: 100%;
+        position: absolute;
+        --swiper-theme-color : #fff;
+        --swiper-pagination-bullet-inactive-color : #fff;
+        --swiper-pagination-bottom : 60px;
+        --swiper-pagination-bullet-horizontal-gap : 8px;
+        margin-top: 25rem;
+    }
+    .swiper-slide {
+        font-size: 1.2rem;
+        display: flex;
+        justify-content: center;
+        padding-left: 15%;
+        padding-right: 15%;
+        box-sizing: border-box;
+        height: 100%;
+        width: 100%;
+        flex-direction: column;
+        gap: 5rem;
+    }
+    .title-slide {
+        color:#fff;
+        font-size: 4rem;
+        font-weight: 900;
+    }
+    .title2-slide {
+        color:#fff;
+        font-size: 4rem;
+        font-weight: 400;
+    }
+    .title3-slide {
+        color:#fff;
+        font-size: 4rem;
+        font-weight: 900;
+        font-family: 'Rock Salt', cursive;
+    }
+    .head {
+        display: flex;
+        flex-direction: column;
+        position: relative;
+    }
+    .violet {
+        color: #8952E0;
+    }
+    .purple {
+        color: #5745C9;
+    }	
+    .orange {
+        color: #FC4626;
+    }
+    .content {
+        display: flex;
+        flex-direction: row;
+        gap: 6rem;
+        box-sizing: border-box;
+        padding-left: 8%;
+        padding-right: 8%;
+        align-items: center;
+    }
+    .info {
+        display: flex;
+        flex-direction: column;
+        gap: 1rem;
+    }
+    .button {
+        display: flex;
+        background-color: #8952E0;
+        padding: 0.7rem 0.9rem;
+        cursor: pointer;
+        transition: all 0.3s ease-in-out;
+        text-decoration: none;
+        color: #fff;
+        font-size: 1rem;
+        width: fit-content;
+        text-align: center;
+        align-items: center;
+        justify-content: center;
+    }
+    .button2 {
+        display: flex;
+        background-color: #fff;
+        padding: 0.7rem 0.9rem;
+        cursor: pointer;
+        transition: all 0.3s ease-in-out;
+        text-decoration: none;
+        color: #4B3A84;
+        font-size: 1rem;
+        width: fit-content;
+        text-align: center;
+        align-items: center;
+        justify-content: center;
+    }
+    .button3 {
+        display: flex;
+        background-color: #fff;
+        padding: 0.7rem 0.9rem;
+        cursor: pointer;
+        transition: all 0.3s ease-in-out;
+        text-decoration: none;
+        color: #030303;
+        font-size: 1rem;
+        width: fit-content;
+        text-align: center;
+        align-items: center;
+        justify-content: center;
+    }
+    .button4 {
+        display: flex;
+        background-color: #FC4626;
+        padding: 0.7rem 0.9rem;
+        cursor: pointer;
+        transition: all 0.3s ease-in-out;
+        text-decoration: none;
+        color: #fff;
+        font-size: 1rem;
+        width: fit-content;
+        text-align: center;
+        align-items: center;
+        justify-content: center;
+    }
+    .stroke {
+		stroke-width: 10px;
+		stroke: #4F3BC4;
+		width: 8rem;
+        position: absolute;
+        bottom: -50px;
+	}
+
+</style>

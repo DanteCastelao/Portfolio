@@ -1,4 +1,5 @@
 ---
+import Carousel from '../components/Carousel.astro';
 import Marquees from '../components/Marquees';
 import Layout from '../layouts/Layout.astro';
 ---
@@ -28,6 +29,7 @@ import Layout from '../layouts/Layout.astro';
 			<Marquees client:only/>
 			<div class="light1"/>
 		</div>
+		<Carousel />
 </Layout>
 
 <script>
@@ -54,7 +56,7 @@ import Layout from '../layouts/Layout.astro';
 	}
 	.marquees {
 		position: relative;
-		margin-top: 40rem;
+		margin-top: 35rem;
 	}
 	.light1 {
 		position: absolute;
@@ -67,6 +69,5 @@ import Layout from '../layouts/Layout.astro';
 		height: 100%;
 		animation: light 5s infinite linear;
 	}
-
 
 </style>
