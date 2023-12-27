@@ -20,11 +20,40 @@ import ZonePicture from '../assets/ZonePicture.png'
             disableOnInteraction: false,
         },
         speed: 1000,
-        keyboard: true,
+        keyboard: true
     });
+
+    document.addEventListener('DOMContentLoaded', function () {
+    const light = document.querySelector('.light');
+    const colors = [
+        '#4B3A84',
+        '#965CF3',
+        '#030303',
+        '#FF4826'
+    ];
+
+    swiper.on('slideChange', function () {
+        const activeIndex = swiper.realIndex;
+
+        // Start the fade-out effect
+        light.classList.add('off');
+
+        // After a short delay, change the color and start the fade-in effect
+        setTimeout(() => {
+            light.style.backgroundColor = colors[activeIndex];
+            light.style.background = colors[activeIndex];
+
+            // Remove the off class and add the on class to start the fade-in
+            light.classList.remove('off');
+            light.classList.add('on');
+        }, 250);
+    });
+});
 </script>
 
 <div class="swiper mySwiper">
+    <div class="light">
+    </div>
     <div class="swiper-wrapper">
         <div class="swiper-slide">
             <span class="title-slide">Veigar <span class="violet">v2</span></span>
@@ -86,6 +115,24 @@ import ZonePicture from '../assets/ZonePicture.png'
         --swiper-pagination-bullet-horizontal-gap : 8px;
         margin-top: 25rem;
     }
+    .light {
+        width: 70%;
+        height: 10%;
+        left: 15%;
+        bottom: 20%;
+        position: absolute;
+        filter: blur(200px);
+        transition: background-color 0.5s ease-in-out, opacity 0.5s ease-in-out; /* Add opacity transition */
+    }
+
+    .light.off {
+        opacity: 0; /* Set opacity to 0 when light is off */
+    }
+
+    .light.on {
+        opacity: 1; /* Set opacity to 1 when light is on */
+    }
+
     .swiper-slide {
         font-size: 1.2rem;
         display: flex;

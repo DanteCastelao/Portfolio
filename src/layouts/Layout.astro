@@ -4,8 +4,8 @@ interface Props {
 }
 
 const { title } = Astro.props;
----
 
+---
 <!doctype html>
 <html lang="en">
 	<head>
@@ -24,6 +24,8 @@ const { title } = Astro.props;
 		<slot />
 	</body>
 </html>
+<script>
+</script>
 <style is:global>
 	:root {
 		--accent: 136, 58, 234;
@@ -55,5 +57,9 @@ const { title } = Astro.props;
 		margin: 0;
 		padding: 0;
 		color: white;
+		overflow: overlay;
+	}
+	::-webkit-scrollbar {
+		display: none;
 	}
 </style>
