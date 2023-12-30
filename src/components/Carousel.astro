@@ -58,7 +58,7 @@ import ZonePicture from '../assets/ZonePicture.png'
         <div class="swiper-slide">
             <span class="title-slide">Veigar <span class="violet">v2</span></span>
             <div class="content">
-                <img src={Veigarv2Picture.src}>
+                <img src={Veigarv2Picture.src} alt="Veigarv2 ScreenShot">
                 <div class="info">
                     <span class="violet">Revitalized a League of Legends coaching platform. Redesigned for impact, delivering a seamless experience for players and elevating the coach's online presence.</span>
                     <a href="https://veigar-v2-webpage.vercel.app" class="button"><span>VISIT SITE &rarr;</span></a>
@@ -77,13 +77,13 @@ import ZonePicture from '../assets/ZonePicture.png'
                     <span>Built from scratch, a dynamic website for a web developer's studio. Crafted design and code harmony, showcasing expertise with a fresh online identity.</span>
                     <a href="https://www.3de.com.ar" class="button2"><span>VISIT SITE &rarr;</span></a>
                 </div>
-                <img src={ThreeDEPicture.src}>
+                <img src={ThreeDEPicture.src} alt="3DE ScreenShot">
             </div>
         </div>
         <div class="swiper-slide">
             <span class="title2-slide">nomore</span>
             <div class="content">
-                <img src={NomorePicture.src}>
+                <img src={NomorePicture.src} alt="Nomore ScreenShot">
                 <div class="info">
                     <span>Elevated the fashion experience online. Crafted a chic website for a trendsetting brand, seamlessly blending style and functionality for an immersive shopping journey.</span>
                     <a href="https://www.nomoretm.com.ar" class="button3"><span>VISIT SITE &rarr;</span></a>
@@ -113,7 +113,7 @@ import ZonePicture from '../assets/ZonePicture.png'
         --swiper-pagination-bullet-inactive-color : #fff;
         --swiper-pagination-bottom : 60px;
         --swiper-pagination-bullet-horizontal-gap : 8px;
-        margin-top: 25rem;
+        overflow-y: visible;
     }
     .light {
         width: 70%;
@@ -125,17 +125,14 @@ import ZonePicture from '../assets/ZonePicture.png'
         background-color: #4B3A84;
         transition: background-color 0.5s ease-in-out, opacity 0.5s ease-in-out; /* Add opacity transition */
     }
-
     .light.off {
         opacity: 0; /* Set opacity to 0 when light is off */
     }
-
     .light.on {
         opacity: 1; /* Set opacity to 1 when light is on */
     }
-
     .swiper-slide {
-        font-size: 1.2rem;
+        font-size: clamp(0.9rem, 1.5vw, 1.2rem);
         display: flex;
         justify-content: center;
         padding-left: 15%;
@@ -146,19 +143,25 @@ import ZonePicture from '../assets/ZonePicture.png'
         flex-direction: column;
         gap: 5rem;
     }
+    @media screen and (max-width: 1200px) {
+        .swiper-slide {
+            padding-left: 8%;
+            padding-right: 8%;
+        }
+    }
     .title-slide {
         color:#fff;
-        font-size: 4rem;
+        font-size: clamp(2.5rem, 5vw, 4rem);
         font-weight: 900;
     }
     .title2-slide {
         color:#fff;
-        font-size: 4rem;
+        font-size: clamp(2.5rem, 5vw, 4rem);
         font-weight: 400;
     }
     .title3-slide {
         color:#fff;
-        font-size: 4rem;
+        font-size: clamp(2.5rem, 5vw, 4rem);
         font-weight: 900;
         font-family: 'Rock Salt', cursive;
     }
@@ -185,6 +188,32 @@ import ZonePicture from '../assets/ZonePicture.png'
         padding-right: 8%;
         align-items: center;
     }
+    @media screen and (max-width: 1200px) {
+        .content {
+            gap: 3rem;
+            padding-left: 0;
+            padding-right: 0;
+        }
+        .content img {
+            width: 50%;
+        }
+    }
+    @media screen and (max-width: 500px) {
+        .content {
+            flex-direction: column;
+            gap: 3rem;
+        }
+        .content img {
+            width: 100%;
+        }
+        .info {
+            order: 1; /* default order is 0 */
+        }
+
+        img {
+            order: 2;
+        }
+    }
     .info {
         display: flex;
         flex-direction: column;
@@ -199,7 +228,7 @@ import ZonePicture from '../assets/ZonePicture.png'
         transition: all 0.3s ease-in-out;
         text-decoration: none;
         color: #fff;
-        font-size: 1rem;
+        font-size: clamp(0.8rem, 1.5vw, 1rem);
         width: fit-content;
         text-align: center;
         align-items: center;
@@ -213,7 +242,7 @@ import ZonePicture from '../assets/ZonePicture.png'
         transition: all 0.3s ease-in-out;
         text-decoration: none;
         color: #4B3A84;
-        font-size: 1rem;
+        font-size: clamp(0.8rem, 1.5vw, 1rem);
         width: fit-content;
         text-align: center;
         align-items: center;
@@ -227,7 +256,7 @@ import ZonePicture from '../assets/ZonePicture.png'
         transition: all 0.3s ease-in-out;
         text-decoration: none;
         color: #030303;
-        font-size: 1rem;
+        font-size: clamp(0.8rem, 1.5vw, 1rem);
         width: fit-content;
         text-align: center;
         align-items: center;
