@@ -124,11 +124,15 @@ import ZonePicture from '../assets/ZonePicture.png'
         filter: blur(200px);
         background-color: #4B3A84;
         transition: background-color 0.5s ease-in-out, opacity 0.5s ease-in-out;
-		-webkit-backface-visibility: hidden;
-		-moz-backface-visibility: hidden;
-		-webkit-transform: translate3d(0, 0, 0);
-		-moz-transform: translate3d(0, 0, 0);
     }
+    @media screen and (max-width: 500px) {
+		.light {
+			-webkit-backface-visibility: hidden;
+			-moz-backface-visibility: hidden;
+			-webkit-transform: translate3d(0, 0, 0);
+			-moz-transform: translate3d(0, 0, 0);
+		}
+	}
     .light.off {
         opacity: 0; /* Set opacity to 0 when light is off */
     }
