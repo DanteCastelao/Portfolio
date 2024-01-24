@@ -46,6 +46,11 @@ import Layout from '../layouts/Layout.astro';
 		align-items: center;
 		justify-content: center;
 	}
+	@media screen and (max-width: 768px){
+		.start {
+			margin-top: 0rem;
+		}
+	}
 	.title {
 		font-size: clamp(2rem, 8vw, 8rem);
 		font-style: italic;
@@ -69,7 +74,7 @@ import Layout from '../layouts/Layout.astro';
 	}
 	@media screen and (max-width: 768px) {
 		.marquees {
-			margin-top: 28rem;
+			display: none;
 		}
 	}
 	.light1 {
@@ -100,7 +105,8 @@ import Layout from '../layouts/Layout.astro';
 	}
 	@media screen and (max-width: 768px) {
 		.carousel {
-			margin-top: 15rem;
+			margin-top: 5rem;
+			height: 65vh;
 		}
 	}
 </style>
