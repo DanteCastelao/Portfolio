@@ -1,24 +1,24 @@
 .container {
     width: 100%;
-    gap: 8rem;
+    gap: 1rem;
     display: flex;
     flex-direction: column;
 }
 
 .container span {
-    font-size: clamp(4rem, 8vw, 9rem);
+    font-size: clamp(4rem, 8vw, 8rem);
     font-weight: 900;
     font-style: italic;
 }
 
 .purple {
-    color: #8952E0;
+    color: rgba(255, 255, 255, 0.08);
 }
 
 .pink {
-    color: #CA4AED;
+    color: rgba(255, 255, 255, 0.08);
 }
 
 .blue {
-    color: #4A86E8;
+    color: rgba(255, 255, 255, 0.08);
 }

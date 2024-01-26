@@ -1,37 +1,63 @@
 ---
-import Carousel from '../components/Carousel.astro';
 import Marquees from '../components/Marquees';
 import Layout from '../layouts/Layout.astro';
+import NomorePicture from '../assets/NomorePicture.png';
+import ThreeDEPicture from '../assets/3DEPicture.png';
+import VeigarV2Picture from '../assets/VeigarV2Picture.png';
+import ZonePicture from '../assets/ZonePicture.png';
 ---
 
 <Layout title="Dante Castelao">
 		<div class="start">
-			<svg width="1400px" height="100%">
+			<svg width="100%">
 				<defs>
-					<linearGradient id="water-gradient" x1="0%" y1="0%" x2="100%" y2="0%">
-						<stop offset="19.85%" style="stop-color: #8952E0"/>
-						<stop offset="58.72%" style="stop-color: #CA4AED"/>
-						<stop offset="97.58%" style="stop-color: #4A86E8"/>
-					</linearGradient>
-					<pattern id="water" width=".25" height="1.1" patternContentUnits="objectBoundingBox">
-						<path fill="#fff" d="M0.25,1H0c0,0,0-0.659,0-0.916c0.083-0.303,0.158,0.334,0.25,0C0.25,0.327,0.25,1,0.25,1z"/>
-					</pattern>
+					<rect id="text-border" fill="#3F3F3F"></rect>
 					<mask id="text_mask">
 						<use x="0" y="0" xlink:href="#text-border" opacity="1"/>
 					</mask>
 				</defs>
-				<text x="50%" y="120" text-anchor="middle" fill="#070707" stroke="#fff" class="title2" id="text-border" opacity="1">// DANTE CASTELAO</text>
-				<rect mask="url(#text_mask)" fill="url(#water-gradient)" x="0" width="100%" height="160" opacity="1"/>
-				<text x="50%" y="120" text-anchor="middle" fill="#070707" class="title" id="text" opacity="1">// DANTE CASTELAO</text>
-			</svg>
+				<text x="50%" y="50%" text-anchor="middle" fill="#121116" stroke="#3F3F3F" class="title2" dominant-baseline="middle" alignment-baseline="middle" opacity="1">// DANTE CASTELAO</text>
+				<text x="50%" y="50%" text-anchor="middle" fill="#121116" class="title" dominant-baseline="middle" alignment-baseline="middle" opacity="1">// DANTE CASTELAO</text>
+			</svg>				
 		</div>
 		<div class="marquees">
 			<Marquees client:only/>
-			<div class="light1"/>
 		</div>
-		<div class="carousel">
-			<Carousel />
+		<div class="menu">
+			<div class="active">
+				All projects.
+			</div>
+			<div>
+				UX-UI.
+			</div>
+			<div>
+				Front-End.
+			</div>
+			<div>
+				Back-End.
+			</div>
+			<div>
+				Rebrands.
+			</div>
 		</div>
+		<div class="grid">
+			<a class="grid-item" href="">
+				<img class="picture" src={NomorePicture.src} alt="Nomore Picture" />
+			</a>
+			<a class="grid-item" href="">
+				<img class="picture" src={VeigarV2Picture.src} alt="VeigarV2 Picture" />
+			</a>
+			<a class="grid-item" href="">
+				<img class="picture" src={ThreeDEPicture.src} alt="3DE Picture" />
+			</a>
+			<a class="grid-item" href="">
+				<img class="picture" src={ThreeDEPicture.src} alt="3DE Picture" />
+			</a>
+			<a class="grid-item" href="">
+				<img class="picture" src={ZonePicture.src} alt="Zone Picture" />
+			</a>
+		</div>
+		<div class="light1"/>
 </Layout>
 
 <script>
@@ -41,31 +67,25 @@ import Layout from '../layouts/Layout.astro';
 <style>
 	.start {
 		display: flex;
-		height: 160px;
-		margin-top: 15rem;
 		align-items: center;
 		justify-content: center;
 	}
 	.title {
-		font-size: clamp(2rem, 8vw, 8rem);
+		font-size: clamp(2rem, 8vw, 2rem);
 		font-style: italic;
 		font-weight: 900;
 		text-align: center;
 	}
 	.title2 {
-		font-size: clamp(2rem, 8vw, 8rem);
+		font-size: clamp(2rem, 8vw, 2rem);
 		font-style: italic;
 		font-weight: 900;
 		text-align: center;
-		stroke-width: clamp(10px, 2vw, 18px);
-	}
-	.water-fill {
-		animation: 	wave 1s infinite linear,
-				 	fill-up 7s ease-in; 
+		stroke-width: clamp(1px, 2vw, 6px);
 	}
 	.marquees {
 		position: relative;
-		margin-top: 35rem;
+		margin-top: 10rem;
 	}
 	@media screen and (max-width: 768px) {
 		.marquees {
@@ -74,13 +94,13 @@ import Layout from '../layouts/Layout.astro';
 	}
 	.light1 {
 		position: absolute;
-		top: 0;
+		bottom: -30%;
 		left: 50%;
 		transform: translate(-50%, 0);
 		background: linear-gradient(89deg, #8952E0 17.26%, #4A86E8 41.05%, #CA4AED 64.84%);
 		filter: blur(350px);
 		width: 80%;
-		height: 70%;
+		height: 30%;
 		animation: light 5s infinite linear;
 	}
 	@media screen and (-webkit-min-device-pixel-ratio: 0) {
@@ -90,17 +110,51 @@ import Layout from '../layouts/Layout.astro';
 			-moz-transform: translate3d(-50%, 0, 0);
 		}
 	}
-	.carousel {
+	.menu {
 		position: relative;
-		width: 100%;
-		height: 100vh;
-		margin-top: 35rem;
+		z-index: 2;
 		display: flex;
-		justify-items: center;
+		flex-direction: row;
+		align-items: center;
+		padding-left: 2rem;
+		background-color: rgba(255, 255, 255, 0.04);
+		padding-top: 2rem;
+		padding-bottom: 2rem;
+		color: rgba(255, 255, 255, 0.15);
+		gap: 1rem;
+		margin-top: 10rem;
+		margin-left: 4rem;
+		margin-right: 4rem;
+		font-size: 1.4rem;
+		font-weight: 700;
 	}
-	@media screen and (max-width: 768px) {
-		.carousel {
-			margin-top: 15rem;
-		}
+	.active {
+		color: rgba(255, 255, 255, 1);
 	}
+	.grid {
+		position: relative;
+        display: grid;
+		grid-template-columns: repeat(6, 1fr);
+        grid-gap: 10px;
+		margin-left: 4rem;
+		margin-right: 4rem;
+		margin-top: 4rem;
+		z-index: 2;
+		padding-bottom: 4rem;
+    }
+    .grid-item {
+        background-color: #f0f0f0;
+        text-align: center;
+    }
+	.picture {
+		width: 100%;
+		height: 100%;
+		object-fit: cover;
+	}
+    .grid-item:nth-child(-n+2) {
+		grid-column: span 3;
+    }
+    .grid-item:nth-child(n+3) {
+		grid-column: span 2;
+    }
 </style>
