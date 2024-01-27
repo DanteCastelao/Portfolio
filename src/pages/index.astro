@@ -61,6 +61,12 @@ import ZonePicture from '../assets/ZonePicture.png';
 </Layout>
 
 <script>
+	const isSafari = /^((?!chrome|android).)*safari/i.test(navigator.userAgent);
+	const light = document.querySelector('.light');
+
+	if (isSafari && light) {
+		light.classList.add('safari');
+	}
 
 </script>
 
@@ -97,10 +103,9 @@ import ZonePicture from '../assets/ZonePicture.png';
 		height: 30%;
 		animation: light 5s infinite linear;
 		margin-left: -40%;
-		-webkit-backface-visibility: hidden;
-		-moz-backface-visibility: hidden;
-		-webkit-transform: translate3d(0, 0, 0);
-		-moz-transform: translate3d(0, 0, 0);
+	}
+	.safari {
+		transform: translate3d(0, 0, 0);
 	}
 	.menu {
 		position: relative;
