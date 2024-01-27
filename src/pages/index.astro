@@ -24,36 +24,36 @@ import ZonePicture from '../assets/ZonePicture.png';
 			<Marquees client:only/>
 		</div>
 		<div class="menu">
-			<div class="active">
+			<div class="active" data-filter="all">
 				All projects.
 			</div>
-			<div class="filters">
+			<div class="filters" data-filter="ux-ui">
 				UX-UI.
 			</div>
-			<div class="filters">
+			<div class="filters" data-filter="front-end">
 				Front-End.
 			</div>
-			<div class="filters">
+			<div class="filters" data-filter="back-end">
 				Back-End.
 			</div>
-			<div class="filters">
+			<div class="filters" data-filter="rebrands">
 				Rebrands.
 			</div>
 		</div>
 		<div class="grid">
-			<a class="grid-item" href="">
+			<a class="grid-item front-end" href="https://www.nomoretm.com.ar">
 				<img class="picture" src={NomorePicture.src} alt="Nomore Picture" />
 			</a>
-			<a class="grid-item" href="">
+			<a class="grid-item ux-ui front-end rebrands" href="https://veigar-v2-webpage.vercel.app">
 				<img class="picture" src={Veigarv2Picture.src} alt="VeigarV2 Picture" />
 			</a>
-			<a class="grid-item" href="">
+			<a class="grid-item ux-ui front-end" href="https://www.3de.com.ar">
 				<img class="picture" src={ThreeDEPicture.src} alt="3DE Picture" />
 			</a>
-			<a class="grid-item" href="">
+			<a class="grid-item back-end" href="https://www.3de.com.ar">
 				<img class="picture" src={ThreeDEPicture.src} alt="3DE Picture" />
 			</a>
-			<a class="grid-item" href="">
+			<a class="grid-item ux-ui front-end" href="">
 				<img class="picture" src={ZonePicture.src} alt="Zone Picture" />
 			</a>
 		</div>
@@ -66,6 +66,42 @@ import ZonePicture from '../assets/ZonePicture.png';
 
 	if (isSafari && light) {
 		light.classList.add('safari');
+	}
+
+	const menuItems = document.querySelectorAll<HTMLDivElement>('.menu div');
+	const gridItems = document.querySelectorAll<HTMLElement>('.grid-item');
+	const grid = document.querySelector<HTMLDivElement>('.grid');
+
+	if (grid) {
+		menuItems.forEach(item => {
+			item.addEventListener('click', () => {
+				const filter = item.dataset.filter;
+				if (filter) {
+					menuItems.forEach(menuItem => {
+						menuItem.classList.remove('active');
+					});
+					item.classList.add('active');
+
+					while (grid.firstChild) {
+						grid.removeChild(grid.firstChild);
+					}
+
+					gridItems.forEach(gridItem => {
+						if (filter === 'all') {
+							gridItem.style.display = 'block';
+							grid.appendChild(gridItem);
+						} else {
+							if (gridItem.classList.contains(filter)) {
+								gridItem.style.display = 'block';
+								grid.insertBefore(gridItem, grid.firstChild);
+							} else {
+								gridItem.style.display = 'none';
+							}
+						}
+					});
+				}
+			});
+		});
 	}
 
 </script>
@@ -125,6 +161,12 @@ import ZonePicture from '../assets/ZonePicture.png';
 		font-size: 1.4rem;
 		font-weight: 700;
 	}
+	.menu div:hover {
+		color: rgba(255, 255, 255, 0.5);
+	}
+	.menu div {
+		cursor: pointer;
+	}	
 	.active {
 		color: rgba(255, 255, 255, 1);
 	}
@@ -148,7 +190,7 @@ import ZonePicture from '../assets/ZonePicture.png';
 		height: 100%;
 		object-fit: cover;
 	}
-    .grid-item:nth-child(-n+2) {
+	.grid-item:nth-child(-n+2) {
 		grid-column: span 3;
     }
     .grid-item:nth-child(n+3) {
