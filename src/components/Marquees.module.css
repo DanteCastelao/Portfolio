@@ -6,7 +6,7 @@
 }
 
 .container span {
-    font-size: clamp(4rem, 8vw, 8rem);
+    font-size: 8rem;
     font-weight: 900;
     font-style: italic;
 }

@@ -27,16 +27,16 @@ import ZonePicture from '../assets/ZonePicture.png';
 			<div class="active">
 				All projects.
 			</div>
-			<div>
+			<div class="filters">
 				UX-UI.
 			</div>
-			<div>
+			<div class="filters">
 				Front-End.
 			</div>
-			<div>
+			<div class="filters">
 				Back-End.
 			</div>
-			<div>
+			<div class="filters">
 				Rebrands.
 			</div>
 		</div>
@@ -87,11 +87,6 @@ import ZonePicture from '../assets/ZonePicture.png';
 		position: relative;
 		margin-top: 10rem;
 	}
-	@media screen and (max-width: 768px) {
-		.marquees {
-			margin-top: 28rem;
-		}
-	}
 	.light1 {
 		position: absolute;
 		bottom: -30%;
@@ -102,13 +97,6 @@ import ZonePicture from '../assets/ZonePicture.png';
 		width: 80%;
 		height: 30%;
 		animation: light 5s infinite linear;
-	}
-	@media screen and (-webkit-min-device-pixel-ratio: 0) {
-		.light1 {
-			-webkit-backface-visibility: hidden;
-			-moz-backface-visibility: hidden;
-			-moz-transform: translate3d(-50%, 0, 0);
-		}
 	}
 	.menu {
 		position: relative;
@@ -157,4 +145,15 @@ import ZonePicture from '../assets/ZonePicture.png';
     .grid-item:nth-child(n+3) {
 		grid-column: span 2;
     }
+	@media screen and (max-width: 800px){
+		.filters {
+			display: none;
+		}
+		.grid {
+			grid-template-columns: repeat(2, 1fr);
+		}
+		.marquees {
+			margin-top: 5rem;
+		}
+	}
 </style>
