@@ -49,6 +49,24 @@
     box-sizing: border-box;
 }
 
+.start-button:focus {
+    display: flex;
+    align-items: center;
+    background-color: #C4C4C4;
+    color: #000;
+    font-size: 1rem;
+    cursor: pointer;
+    gap: 6px;
+    padding: 4px;
+    border-left: 2px solid #000;
+    border-top: 2px solid #000;
+    border-bottom: 2px solid #C1C6C9;
+    border-right: 2px solid #C1C6C9;
+    outline: inset 2px #fff;
+    outline-offset: -4px;
+    box-sizing: border-box;
+}
+
 .border {
     height: 100%;
     display: flex;
@@ -101,6 +119,7 @@
     gap: 6px;
     padding: 4px;
     width: 140px;
+    background-image: url("../../assets/tile.png");
 }
 
 .tab img {
@@ -128,6 +147,7 @@
     border-right: 2px solid #C1C6C9;
     outline: inset 2px #fff;
     outline-offset: -4px;
+    background-image: url("../../assets/tile.png");
 }
 
 .tab-selected img {

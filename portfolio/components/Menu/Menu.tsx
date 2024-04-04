@@ -1,5 +1,8 @@
 import './Menu.css';
 import shutdownIcon from '../../assets/shutdownicon.png';
+import notepadIcon from '../../assets/notepadicon.png';
+import programsIcon from '../../assets/programsIcon.png';
+import projectsIcon from '../../assets/projectsIcon.png';
 
 export default function Menu({ openAboutModal }: { openAboutModal: () => void }) {
     const handleAboutClick = () => {
@@ -11,7 +14,7 @@ export default function Menu({ openAboutModal }: { openAboutModal: () => void })
             <div className='menu-list'>
                 <div className='programs'>
                     <div className='program'>
-                        <img src={shutdownIcon} alt="Shutdown icon"/>
+                        <img src={projectsIcon} alt="Projects icon"/>
                         <span>Projects</span>
                         <div className="submenu">
                             <div className='sublist'>
@@ -31,7 +34,7 @@ export default function Menu({ openAboutModal }: { openAboutModal: () => void })
                         </div>
                     </div>
                     <div className='program'>
-                        <img src={shutdownIcon} alt="Shutdown icon"/>
+                        <img src={programsIcon} alt="Programs icon"/>
                         <span>Programs</span>
                         <div className="submenu">
                             <div className='sublist'>
@@ -47,7 +50,7 @@ export default function Menu({ openAboutModal }: { openAboutModal: () => void })
                         </div>
                     </div>
                     <div className='program' onClick={handleAboutClick}>
-                        <img src={shutdownIcon} alt="Shutdown icon"/>
+                        <img src={notepadIcon} alt="Notepad icon"/>
                         <span>About me</span>
                     </div>
                 </div>

@@ -3,6 +3,7 @@ import win95logo from '../../assets/win95logo.png';
 import { useEffect, useState } from 'react';
 import Menu from '../Menu/Menu';
 import About from '../About/About';
+import notepadIcon from '../../assets/notepadicon.png';
 
 export default function TaskBar() {
 
@@ -45,6 +46,24 @@ export default function TaskBar() {
         };
     }, [menuOpen]);
 
+    const [currentHour, setCurrentHour] = useState('');
+
+    useEffect(() => {
+        const getCurrentTime = () => {
+            const date = new Date();
+            const hour = date.getHours().toString().padStart(2, '0');
+            const minutes = date.getMinutes().toString().padStart(2, '0');
+            setCurrentHour(`${hour}:${minutes}`);
+        };
+
+        getCurrentTime();
+        const interval = setInterval(getCurrentTime, 60000);
+
+        return () => {
+            clearInterval(interval);
+        };
+    }, []);
+
     return (
         <>
             {aboutModalOpen && (
@@ -61,13 +80,13 @@ export default function TaskBar() {
                 <div className="taskbar-icons">
                     {aboutIconVisible && 
                         <div className={ aboutModalOpen ? "tab-selected" : "tab" } onClick={toggleAboutIcon} >
-                            <img src={win95logo} alt="Windows 95 logo" />
+                            <img src={notepadIcon} alt="Notepad logo" />
                             <span>About me</span>
                         </div>
                     }
                 </div>
                 <div className="taskbar-time">
-                    <span>10:00</span>
+                    <span>{currentHour}</span>
                 </div>
             </div>
         </>
