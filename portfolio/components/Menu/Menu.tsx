@@ -1,7 +1,10 @@
 import './Menu.css';
 import shutdownIcon from '../../assets/shutdownicon.png';
 
-export default function Menu() {
+export default function Menu({ openAboutModal }: { openAboutModal: () => void }) {
+    const handleAboutClick = () => {
+        openAboutModal();
+    };
     return (
         <div className="menu">
             <div className='wordmark'/>
@@ -43,7 +46,7 @@ export default function Menu() {
                             </div>
                         </div>
                     </div>
-                    <div className='program'>
+                    <div className='program' onClick={handleAboutClick}>
                         <img src={shutdownIcon} alt="Shutdown icon"/>
                         <span>About me</span>
                     </div>

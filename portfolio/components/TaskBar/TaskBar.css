@@ -10,37 +10,43 @@
     bottom: 0;
     color:#000000;
     justify-content: center;
+    gap: 4px;
 }
 
 .start-button {
-    height: 80%;
-    border-right: solid 1px #000;
-    border-bottom: solid 1px #000;
-    box-sizing: border-box;
     display: flex;
+    align-items: center;
+    background-color: #C4C4C4;
+    color: #000;
+    font-size: 1rem;
+    cursor: pointer;
+    gap: 6px;
+    padding: 4px;
+    border-left: 2px solid #C1C6C9;
+    border-top: 2px solid #C1C6C9;
+    border-bottom: 2px solid #000;
+    border-right: 2px solid #000;
+    outline: outset 2px #fff;
+    outline-offset: -4px;
+    box-sizing: border-box;
 }
 
 .start-button:hover {
-    border-left: solid 1px #000;
-    border-top: solid 1px #000;
-    border-right: none;
-    border-bottom: none;
-}
-
-.subcontainer {
-    font-size: 1.1rem;
-    padding: 2px;
-    border: outset 2px #fff;
-    box-sizing: border-box;
-    width: 100%;
     display: flex;
-    flex-direction: column;
-    justify-content: center;
     align-items: center;
-}
-
-.subcontainer:hover {
-    border: inset 2px #fff;
+    background-color: #C4C4C4;
+    color: #000;
+    font-size: 1rem;
+    cursor: pointer;
+    gap: 6px;
+    padding: 4px;
+    border-left: 2px solid #000;
+    border-top: 2px solid #000;
+    border-bottom: 2px solid #C1C6C9;
+    border-right: 2px solid #C1C6C9;
+    outline: inset 2px #fff;
+    outline-offset: -4px;
+    box-sizing: border-box;
 }
 
 .border {
@@ -77,4 +83,58 @@
     padding-left: 4px;
     padding-right: 4px;
     padding-top: 2px;
+}
+
+.tab {
+    display: flex;
+    align-items: center;
+    border-left: 2px solid #C1C6C9;
+    border-top: 2px solid #C1C6C9;
+    border-bottom: 2px solid #000;
+    border-right: 2px solid #000;
+    outline: outset 2px #fff;
+    outline-offset: -4px !important;
+    background-color: #C4C4C4;
+    color: #000;
+    font-size: 1rem;
+    cursor: pointer;
+    gap: 6px;
+    padding: 4px;
+    width: 140px;
+}
+
+.tab img {
+    height: 24px;
+    object-fit: contain;
+}
+
+.tab span {
+    user-select: none;
+}
+
+.tab-selected {
+    display: flex;
+    align-items: center;
+    background-color: #C4C4C4;
+    color: #000;
+    font-size: 1rem;
+    cursor: pointer;
+    gap: 6px;
+    padding: 4px;
+    width: 140px;
+    border-left: 2px solid #000;
+    border-top: 2px solid #000;
+    border-bottom: 2px solid #C1C6C9;
+    border-right: 2px solid #C1C6C9;
+    outline: inset 2px #fff;
+    outline-offset: -4px;
+}
+
+.tab-selected img {
+    height: 24px;
+    object-fit: contain;
+}
+
+.tab-selected span {
+    user-select: none;
 }

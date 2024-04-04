@@ -2,8 +2,28 @@ import './TaskBar.css';
 import win95logo from '../../assets/win95logo.png';
 import { useEffect, useState } from 'react';
 import Menu from '../Menu/Menu';
+import About from '../About/About';
 
 export default function TaskBar() {
+
+    const [aboutModalOpen, setAboutModalOpen] = useState(false);
+    const [aboutIconVisible, setAboutIconVisible] = useState(false);
+
+    const openAboutModal = () => {
+        setAboutModalOpen(true);
+        setAboutIconVisible(true);
+        setMenuOpen(false);
+    };
+
+    const closeAboutModal = () => {
+        setAboutModalOpen(false);
+        setAboutIconVisible(false);
+        setMenuOpen(false);
+    };
+
+    const toggleAboutIcon = () => {
+        setAboutModalOpen(!aboutModalOpen);
+    };
 
     const [menuOpen, setMenuOpen] = useState(false);
 
@@ -27,17 +47,24 @@ export default function TaskBar() {
 
     return (
         <>
-            {menuOpen && <Menu />}
+            {aboutModalOpen && (
+                <About closeModal={closeAboutModal} hideModal={toggleAboutIcon}/>
+            )}
+            {menuOpen && <Menu openAboutModal={openAboutModal} />}
             <div className="taskbar">
                 <div className="start-button" onClick={toggleMenu} tabIndex={0}>
-                    <div className='subcontainer'>
-                        <div className='border'>
-                            <img className='winlogo' src={win95logo} alt="Windows 95 logo" />
-                            <span>Start</span>
-                        </div>
+                    <div className='border'>
+                        <img className='winlogo' src={win95logo} alt="Windows 95 logo" />
+                        <span>Start</span>
                     </div>
                 </div>
                 <div className="taskbar-icons">
+                    {aboutIconVisible && 
+                        <div className={ aboutModalOpen ? "tab-selected" : "tab" } onClick={toggleAboutIcon} >
+                            <img src={win95logo} alt="Windows 95 logo" />
+                            <span>About me</span>
+                        </div>
+                    }
                 </div>
                 <div className="taskbar-time">
                     <span>10:00</span>
