@@ -7,10 +7,9 @@ interface ModalProps {
     children: React.ReactNode;
     title: string;
     onMinimize?: () => void;
-    closeModalAndRemoveTab?: () => void; // New prop for closing modal and removing tab
 }
 
-const Modal: React.FC<ModalProps> = ({ show, onClose, children, title, onMinimize, closeModalAndRemoveTab }) => {
+const Modal: React.FC<ModalProps> = ({ show, onClose, children, title, onMinimize }) => {
     if (!show) {
         return null;
     }
@@ -26,7 +25,7 @@ const Modal: React.FC<ModalProps> = ({ show, onClose, children, title, onMinimiz
             } else {
                 elmnt.onmousedown = dragMouseDown;
             }
-
+        
             function dragMouseDown(e) {
                 e = e || window.event;
                 e.preventDefault();
@@ -35,7 +34,7 @@ const Modal: React.FC<ModalProps> = ({ show, onClose, children, title, onMinimiz
                 document.onmouseup = closeDragElement;
                 document.onmousemove = elementDrag;
             }
-
+        
             function elementDrag(e) {
                 e = e || window.event;
                 e.preventDefault();
@@ -46,7 +45,7 @@ const Modal: React.FC<ModalProps> = ({ show, onClose, children, title, onMinimiz
                 elmnt.style.top = (elmnt.offsetTop - pos2) + "px";
                 elmnt.style.left = (elmnt.offsetLeft - pos1) + "px";
             }
-
+        
             function closeDragElement() {
                 document.onmouseup = null;
                 document.onmousemove = null;

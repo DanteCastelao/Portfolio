@@ -1,0 +1,34 @@
+.music {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    padding: 4px;
+    width: 100%;
+    overflow: auto;
+    background-color: #C1C6C9;
+    box-sizing: border-box;
+    color: #000;
+    width: 20vw;
+    overflow: hidden;
+    overflow-y: hidden;
+    align-items: center;
+}
+
+.screen {
+    display: flex;
+    flex-direction: row;
+    overflow: auto;
+    background-color: #000;
+    box-sizing: border-box;
+    width: 85%;
+    aspect-ratio: 10/2;
+    overflow: hidden;
+}
+
+.controls {
+    display: flex;
+    flex-direction: row;
+    gap: 16px;
+    width: 100%;
+    justify-content: center;
+}

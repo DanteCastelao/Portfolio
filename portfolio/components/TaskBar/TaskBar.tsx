@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
 import './TaskBar.css';
 import win95logo from '../../assets/win95logo.png';
 import Menu from '../Menu/Menu';
@@ -6,18 +6,21 @@ import Modal from '../Modal/Modal'; // Create a generic Modal component
 import notepadIcon from '../../assets/notepadicon.png';
 import Livestream from '../Livestream/Livestream';
 import About from '../About/About';
+import Music from '../Music/Music';
 
 export default function TaskBar() {
     const [menuOpen, setMenuOpen] = useState(false);
     const [currentHour, setCurrentHour] = useState('');
     const [modals, setModals] = useState({
         about: false,
-        livestream: false
+        livestream: true,
+        music: true
     });
 
     const [modalContentVisible, setModalContentVisible] = useState({
         about: false,
-        livestream: false
+        livestream: true,
+        music: true
     });
 
     const toggleMenu = () => {
@@ -88,6 +91,14 @@ export default function TaskBar() {
                 <About />
             </Modal>
             <Modal 
+                show={modals.music} 
+                onClose={() => handleCloseModal('music')} 
+                onMinimize={() => toggleModal('music')} 
+                title='Music'
+            >
+                <Music />
+            </Modal>
+            <Modal 
                 show={modals.livestream} 
                 onClose={() => handleCloseModal('livestream')} 
                 onMinimize={() => toggleModal('livestream')} 
@@ -95,7 +106,7 @@ export default function TaskBar() {
             >
                 <Livestream />
             </Modal>
-            {menuOpen && <Menu openAboutModal={() => toggleModal('about')} openLivestreamModal={() => toggleModal('livestream')} />}
+            {menuOpen && <Menu openAboutModal={() => toggleModal('about')} openLivestreamModal={() => toggleModal('livestream')} openMusicModal={() => toggleModal('music')} />}
             <div className="taskbar">
                 <div className="start-button" onClick={toggleMenu} tabIndex={0}>
                     <div className='border'>
@@ -105,15 +116,21 @@ export default function TaskBar() {
                 </div>
                 <div className="taskbar-icons">
                     {modalContentVisible.about &&
-                        <div className="tab" onClick={() => toggleModal('about')}>
+                        <div className={`tab ${modals.about ? 'tab-selected' : ''}`} onClick={() => toggleModal('about')}>
                             <img src={notepadIcon} alt="Notepad logo" />
                             <span>About me</span>
                         </div>
                     }
                     {modalContentVisible.livestream &&
-                        <div className="tab" onClick={() => toggleModal('livestream')}>
+                        <div className={`tab ${modals.livestream ? 'tab-selected' : ''}`} onClick={() => toggleModal('livestream')}>
                             <img src={notepadIcon} alt="Livestream" />
                             <span>Livestream</span>
+                        </div>
+                    }
+                    {modalContentVisible.music &&
+                        <div className={`tab ${modals.music ? 'tab-selected' : ''}`} onClick={() => toggleModal('music')}>
+                            <img src={notepadIcon} alt="Music" />
+                            <span>Music</span>
                         </div>
                     }
                 </div>

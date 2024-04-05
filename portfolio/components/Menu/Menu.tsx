@@ -4,10 +4,7 @@ import notepadIcon from '../../assets/notepadicon.png';
 import programsIcon from '../../assets/programsIcon.png';
 import projectsIcon from '../../assets/projectsIcon.png';
 
-export default function Menu({ openAboutModal, openLivestreamModal }: { openAboutModal: () => void, openLivestreamModal: () => void }) {
-    const handleAboutClick = () => {
-        openAboutModal();
-    };
+export default function Menu({ openAboutModal, openLivestreamModal, openMusicModal }: { openAboutModal: () => void, openLivestreamModal: () => void, openMusicModal: () => void}) {
     return (
         <div className="menu">
             <div className='wordmark'/>
@@ -38,7 +35,7 @@ export default function Menu({ openAboutModal, openLivestreamModal }: { openAbou
                         <span>Programs</span>
                         <div className="submenu">
                             <div className='sublist'>
-                                <div>
+                                <div onClick={openMusicModal}>
                                     <img src={shutdownIcon} alt="Shutdown icon"/>
                                     <span>Music</span>
                                 </div>
@@ -49,7 +46,7 @@ export default function Menu({ openAboutModal, openLivestreamModal }: { openAbou
                             </div>
                         </div>
                     </div>
-                    <div className='program' onClick={handleAboutClick}>
+                    <div className='program' onClick={openAboutModal}>
                         <img src={notepadIcon} alt="Notepad icon"/>
                         <span>About me</span>
                     </div>

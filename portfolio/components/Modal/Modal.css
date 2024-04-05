@@ -1,6 +1,5 @@
 .modal-overlay {
     position: absolute;
-    width: 60%;
     background-color: #C3C7CB;
     border-left: 2px solid #C1C6C9;
     border-top: 2px solid #C1C6C9;
@@ -14,6 +13,7 @@
     padding: 8px;
     z-index: 9;
     gap: 8px;
+    width: min-content;
 }
 
 .modal-header-container {
