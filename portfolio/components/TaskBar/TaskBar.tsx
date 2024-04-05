@@ -1,35 +1,50 @@
+import React, { useEffect, useState } from 'react';
 import './TaskBar.css';
 import win95logo from '../../assets/win95logo.png';
-import { useEffect, useState } from 'react';
 import Menu from '../Menu/Menu';
-import About from '../About/About';
+import Modal from '../Modal/Modal'; // Create a generic Modal component
 import notepadIcon from '../../assets/notepadicon.png';
+import Livestream from '../Livestream/Livestream';
+import About from '../About/About';
 
 export default function TaskBar() {
-
-    const [aboutModalOpen, setAboutModalOpen] = useState(false);
-    const [aboutIconVisible, setAboutIconVisible] = useState(false);
-
-    const openAboutModal = () => {
-        setAboutModalOpen(true);
-        setAboutIconVisible(true);
-        setMenuOpen(false);
-    };
-
-    const closeAboutModal = () => {
-        setAboutModalOpen(false);
-        setAboutIconVisible(false);
-        setMenuOpen(false);
-    };
-
-    const toggleAboutIcon = () => {
-        setAboutModalOpen(!aboutModalOpen);
-    };
-
     const [menuOpen, setMenuOpen] = useState(false);
+    const [currentHour, setCurrentHour] = useState('');
+    const [modals, setModals] = useState({
+        about: false,
+        livestream: false
+    });
+
+    const [modalContentVisible, setModalContentVisible] = useState({
+        about: false,
+        livestream: false
+    });
 
     const toggleMenu = () => {
         setMenuOpen(!menuOpen);
+    };
+
+    const toggleModal = (modalName: string) => {
+        setModals(prevState => ({
+            ...prevState,
+            [modalName]: !prevState[modalName]
+        }));
+        setModalContentVisible(prevState => ({
+            ...prevState,
+            [modalName]: true
+        }));
+        setMenuOpen(false);
+    };
+
+    const handleCloseModal = (modalName: string) => {
+        setModals(prevState => ({
+            ...prevState,
+            [modalName]: false
+        }));
+        setModalContentVisible(prevState => ({
+            ...prevState,
+            [modalName]: false
+        }));
     };
 
     useEffect(() => {
@@ -45,8 +60,6 @@ export default function TaskBar() {
             document.removeEventListener('mousedown', handleOutsideClick);
         };
     }, [menuOpen]);
-
-    const [currentHour, setCurrentHour] = useState('');
 
     useEffect(() => {
         const getCurrentTime = () => {
@@ -66,10 +79,23 @@ export default function TaskBar() {
 
     return (
         <>
-            {aboutModalOpen && (
-                <About closeModal={closeAboutModal} hideModal={toggleAboutIcon}/>
-            )}
-            {menuOpen && <Menu openAboutModal={openAboutModal} />}
+            <Modal 
+                show={modals.about} 
+                onClose={() => handleCloseModal('about')} 
+                onMinimize={() => toggleModal('about')} 
+                title='About me'
+            >
+                <About />
+            </Modal>
+            <Modal 
+                show={modals.livestream} 
+                onClose={() => handleCloseModal('livestream')} 
+                onMinimize={() => toggleModal('livestream')} 
+                title='Livestream'
+            >
+                <Livestream />
+            </Modal>
+            {menuOpen && <Menu openAboutModal={() => toggleModal('about')} openLivestreamModal={() => toggleModal('livestream')} />}
             <div className="taskbar">
                 <div className="start-button" onClick={toggleMenu} tabIndex={0}>
                     <div className='border'>
@@ -78,10 +104,16 @@ export default function TaskBar() {
                     </div>
                 </div>
                 <div className="taskbar-icons">
-                    {aboutIconVisible && 
-                        <div className={ aboutModalOpen ? "tab-selected" : "tab" } onClick={toggleAboutIcon} >
+                    {modalContentVisible.about &&
+                        <div className="tab" onClick={() => toggleModal('about')}>
                             <img src={notepadIcon} alt="Notepad logo" />
                             <span>About me</span>
+                        </div>
+                    }
+                    {modalContentVisible.livestream &&
+                        <div className="tab" onClick={() => toggleModal('livestream')}>
+                            <img src={notepadIcon} alt="Livestream" />
+                            <span>Livestream</span>
                         </div>
                     }
                 </div>

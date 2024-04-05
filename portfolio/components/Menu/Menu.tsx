@@ -4,7 +4,7 @@ import notepadIcon from '../../assets/notepadicon.png';
 import programsIcon from '../../assets/programsIcon.png';
 import projectsIcon from '../../assets/projectsIcon.png';
 
-export default function Menu({ openAboutModal }: { openAboutModal: () => void }) {
+export default function Menu({ openAboutModal, openLivestreamModal }: { openAboutModal: () => void, openLivestreamModal: () => void }) {
     const handleAboutClick = () => {
         openAboutModal();
     };
@@ -42,7 +42,7 @@ export default function Menu({ openAboutModal }: { openAboutModal: () => void })
                                     <img src={shutdownIcon} alt="Shutdown icon"/>
                                     <span>Music</span>
                                 </div>
-                                <div>
+                                <div onClick={openLivestreamModal}>
                                     <img src={shutdownIcon} alt="Shutdown icon"/>
                                     <span>Livestream</span>
                                 </div>
