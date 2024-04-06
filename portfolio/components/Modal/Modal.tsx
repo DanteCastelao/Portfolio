@@ -17,35 +17,39 @@ const Modal: React.FC<ModalProps> = ({ show, onClose, children, title, onMinimiz
     useEffect(() => {
         dragElement(document.getElementById("modal"));
 
-        function dragElement(elmnt) {
+        function dragElement(elmnt: HTMLElement | null) {
             var pos1 = 0, pos2 = 0, pos3 = 0, pos4 = 0;
-            const headerElement = document.getElementById(elmnt.id + "header");
+            const headerElement = elmnt ? document.getElementById(elmnt.id + "header") : null;
             if (headerElement) {
                 headerElement.onmousedown = dragMouseDown;
-            } else {
+            } else if (elmnt) {
                 elmnt.onmousedown = dragMouseDown;
             }
-        
-            function dragMouseDown(e) {
-                e = e || window.event;
-                e.preventDefault();
-                pos3 = e.clientX;
-                pos4 = e.clientY;
-                document.onmouseup = closeDragElement;
-                document.onmousemove = elementDrag;
+
+            function dragMouseDown(e: MouseEvent | undefined) {
+                e = e as MouseEvent; // Cast the event type to MouseEvent
+                if (e) {
+                    e.preventDefault();
+                    pos3 = e.clientX;
+                    pos4 = e.clientY;
+                    document.onmouseup = closeDragElement;
+                    document.onmousemove = elementDrag;
+                }
             }
         
-            function elementDrag(e) {
-                e = e || window.event;
+            function elementDrag(e: MouseEvent | undefined) {
+                e = e as MouseEvent;
                 e.preventDefault();
-                pos1 = pos3 - e.clientX;
-                pos2 = pos4 - e.clientY;
-                pos3 = e.clientX;
-                pos4 = e.clientY;
-                elmnt.style.top = (elmnt.offsetTop - pos2) + "px";
-                elmnt.style.left = (elmnt.offsetLeft - pos1) + "px";
+                if (elmnt) {
+                    pos1 = pos3 - e.clientX;
+                    pos2 = pos4 - e.clientY;
+                    pos3 = e.clientX;
+                    pos4 = e.clientY;
+                    elmnt.style.top = (elmnt.offsetTop - pos2) + "px";
+                    elmnt.style.left = (elmnt.offsetLeft - pos1) + "px";
+                }
             }
-        
+
             function closeDragElement() {
                 document.onmouseup = null;
                 document.onmousemove = null;
