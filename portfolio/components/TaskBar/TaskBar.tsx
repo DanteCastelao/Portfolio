@@ -27,7 +27,7 @@ export default function TaskBar() {
         setMenuOpen(!menuOpen);
     };
 
-    const toggleModal = (modalName: string) => {
+    const toggleModal = (modalName: keyof typeof modals) => {
         setModals(prevState => ({
             ...prevState,
             [modalName]: !prevState[modalName]
@@ -39,7 +39,7 @@ export default function TaskBar() {
         setMenuOpen(false);
     };
 
-    const handleCloseModal = (modalName: string) => {
+    const handleCloseModal = (modalName: keyof typeof modals) => {
         setModals(prevState => ({
             ...prevState,
             [modalName]: false
@@ -51,8 +51,8 @@ export default function TaskBar() {
     };
 
     useEffect(() => {
-        const handleOutsideClick = (event: { target: { closest: (arg0: string) => any; }; }) => {
-            if (menuOpen && !event.target.closest('.menu') && !event.target.closest('.start-button')) {
+        const handleOutsideClick = (event: MouseEvent) => {
+            if (menuOpen && event.target && !(event.target as Element).closest('.menu') && !(event.target as Element).closest('.start-button')) {
                 setMenuOpen(false);
             }
         };
