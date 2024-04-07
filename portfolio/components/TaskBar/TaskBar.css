@@ -17,6 +17,7 @@
     color:#000000;
     justify-content: center;
     gap: 4px;
+    z-index: 999999999;
 }
 
 .start-button {

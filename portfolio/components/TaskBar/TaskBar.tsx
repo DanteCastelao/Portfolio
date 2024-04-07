@@ -4,6 +4,8 @@ import win95logo from '../../assets/win95logo.png';
 import Menu from '../Menu/Menu';
 import Modal from '../Modal/Modal'; 
 import notepadIcon from '../../assets/notepadicon.png';
+import musicIcon from '../../assets/musicIcon.png';
+import livestreamIcon from '../../assets/livestreamIcon.png';
 import Livestream from '../Livestream/Livestream';
 import About from '../About/About';
 import Music from '../Music/Music';
@@ -79,8 +81,8 @@ export default function TaskBar() {
         <>
             <div className="desktop">
                 <Icon icon={notepadIcon} text="About me" onClick={() => openModal('about')} />
-                <Icon icon={notepadIcon} text="Livestream" onClick={() => openModal('livestream')} />
-                <Icon icon={notepadIcon} text="Music" onClick={() => openModal('music')} />
+                <Icon icon={livestreamIcon} text="Livestream" onClick={() => openModal('livestream')} />
+                <Icon icon={musicIcon} text="Music" onClick={() => openModal('music')} />
             </div>
             <Modal
                 id="about"
@@ -88,6 +90,7 @@ export default function TaskBar() {
                 onClose={() => handleCloseModal('about')}
                 title='About me'
                 initialPosition={{ right: 500, bottom: 300}}
+                icon={notepadIcon}
             >
                 <About />
             </Modal>
@@ -97,6 +100,7 @@ export default function TaskBar() {
                 onClose={() => handleCloseModal('music')}
                 title='Music'
                 initialPosition={{ right: 50, bottom: 400 }}
+                icon={musicIcon}
             >
                 <Music />
             </Modal>
@@ -106,6 +110,7 @@ export default function TaskBar() {
                 onClose={() => handleCloseModal('livestream')}
                 title='Livestream'
                 initialPosition={{ right: 50, bottom: 100 }}
+                icon={livestreamIcon}
             >
                 <Livestream />
             </Modal>
@@ -123,11 +128,11 @@ export default function TaskBar() {
                         <span>About me</span>
                     </div>
                     <div className={`tab ${modals.livestream ? 'tab-selected' : ''}`} onClick={() => toggleModal('livestream')}>
-                        <img src={notepadIcon} alt="Livestream" />
+                        <img src={livestreamIcon} alt="Livestream" />
                         <span>Livestream</span>
                     </div>
                     <div className={`tab ${modals.music ? 'tab-selected' : ''}`} onClick={() => toggleModal('music')}>
-                        <img src={notepadIcon} alt="Music" />
+                        <img src={musicIcon} alt="Music" />
                         <span>Music</span>
                     </div>
                 </div>

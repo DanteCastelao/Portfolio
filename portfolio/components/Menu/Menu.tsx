@@ -3,6 +3,8 @@ import shutdownIcon from '../../assets/shutdownicon.png';
 import notepadIcon from '../../assets/notepadicon.png';
 import programsIcon from '../../assets/programsIcon.png';
 import projectsIcon from '../../assets/projectsIcon.png';
+import musicIcon from '../../assets/musicIcon.png';
+import livestreamIcon from '../../assets/livestreamIcon.png';
 
 export default function Menu({ openAboutModal, openLivestreamModal, openMusicModal }: { openAboutModal: () => void, openLivestreamModal: () => void, openMusicModal: () => void}) {
     return (
@@ -36,11 +38,11 @@ export default function Menu({ openAboutModal, openLivestreamModal, openMusicMod
                         <div className="submenu">
                             <div className='sublist'>
                                 <div onClick={openMusicModal}>
-                                    <img src={shutdownIcon} alt="Shutdown icon"/>
+                                    <img src={musicIcon} alt="Music icon"/>
                                     <span>Music</span>
                                 </div>
                                 <div onClick={openLivestreamModal}>
-                                    <img src={shutdownIcon} alt="Shutdown icon"/>
+                                    <img src={livestreamIcon} alt="Livestream icon"/>
                                     <span>Livestream</span>
                                 </div>
                             </div>

@@ -9,9 +9,10 @@ interface ModalProps {
     title: string;
     onMinimize?: () => void;
     initialPosition?: { right: number; bottom: number};
+    icon: string;
 }
 
-const Modal: React.FC<ModalProps> = ({ id, show, onClose, children, title, onMinimize, initialPosition }) => {
+const Modal: React.FC<ModalProps> = ({ id, show, onClose, children, title, onMinimize, initialPosition, icon }) => {
     const [modalStyle, setModalStyle] = useState<React.CSSProperties>({ zIndex: 1 });
     const [zIndex, setZIndex] = useState<number>(1);
     const [modalOrder, setModalOrder] = useState<string[]>([]);
@@ -114,6 +115,7 @@ const Modal: React.FC<ModalProps> = ({ id, show, onClose, children, title, onMin
             <div className="modal-header-container">
                 <div className="modal-header">
                     <div className='header-title'>
+                        <img src={icon} alt="icon" />
                         {title}
                     </div>
                     <div className='buttons'>

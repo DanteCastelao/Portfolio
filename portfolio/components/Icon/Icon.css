@@ -1,19 +1,27 @@
 .icon {
-    width: 80px; /* Set the width of your icon */
-    height: 60px; /* Set the height of your icon */
-    display: flex; /* Set the display property to flex */
+    width: 80px;
+    height: 60px;
+    display: flex;
     flex-direction: column;
-    justify-content: center; /* Center the content vertically */
-    align-items: center; /* Center the content horizontally */
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    padding: 5px 0;
+}
+
+.icon:focus {
+    background-color: #008080;
+    border: 1px dotted #fff;
 }
 
 .icon span {
-    flex: 1; /* Allow the text to take up remaining space */
-    text-align: center; /* Center the text */
+    flex: 1;
+    text-align: center;
 }
 
 .icon img {
-    height: 60%; /* Set the height of the image to auto */
+    height: 60%;
     aspect-ratio: 1;
-    object-fit: contain; /* Set the object-fit property to contain */
+    object-fit: contain;
 }
+
