@@ -1,23 +1,18 @@
-import { useEffect, useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import './TaskBar.css';
 import win95logo from '../../assets/win95logo.png';
 import Menu from '../Menu/Menu';
-import Modal from '../Modal/Modal'; // Create a generic Modal component
+import Modal from '../Modal/Modal'; 
 import notepadIcon from '../../assets/notepadicon.png';
 import Livestream from '../Livestream/Livestream';
 import About from '../About/About';
 import Music from '../Music/Music';
+import Icon from '../Icon/Icon';
 
 export default function TaskBar() {
     const [menuOpen, setMenuOpen] = useState(false);
     const [currentHour, setCurrentHour] = useState('');
     const [modals, setModals] = useState({
-        about: false,
-        livestream: true,
-        music: true
-    });
-
-    const [modalContentVisible, setModalContentVisible] = useState({
         about: false,
         livestream: true,
         music: true
@@ -32,7 +27,11 @@ export default function TaskBar() {
             ...prevState,
             [modalName]: !prevState[modalName]
         }));
-        setModalContentVisible(prevState => ({
+        setMenuOpen(false);
+    };
+
+    const openModal = (modalName: keyof typeof modals) => {
+        setModals(prevState => ({
             ...prevState,
             [modalName]: true
         }));
@@ -41,10 +40,6 @@ export default function TaskBar() {
 
     const handleCloseModal = (modalName: keyof typeof modals) => {
         setModals(prevState => ({
-            ...prevState,
-            [modalName]: false
-        }));
-        setModalContentVisible(prevState => ({
             ...prevState,
             [modalName]: false
         }));
@@ -82,31 +77,39 @@ export default function TaskBar() {
 
     return (
         <>
-            <Modal 
-                show={modals.about} 
-                onClose={() => handleCloseModal('about')} 
-                onMinimize={() => toggleModal('about')} 
+            <div className="desktop">
+                <Icon icon={notepadIcon} text="About me" onClick={() => openModal('about')} />
+                <Icon icon={notepadIcon} text="Livestream" onClick={() => openModal('livestream')} />
+                <Icon icon={notepadIcon} text="Music" onClick={() => openModal('music')} />
+            </div>
+            <Modal
+                id="about"
+                show={modals.about}
+                onClose={() => handleCloseModal('about')}
                 title='About me'
+                initialPosition={{ right: 500, bottom: 300}}
             >
                 <About />
             </Modal>
-            <Modal 
-                show={modals.music} 
-                onClose={() => handleCloseModal('music')} 
-                onMinimize={() => toggleModal('music')} 
+            <Modal
+                id="music"
+                show={modals.music}
+                onClose={() => handleCloseModal('music')}
                 title='Music'
+                initialPosition={{ right: 50, bottom: 400 }}
             >
                 <Music />
             </Modal>
-            <Modal 
-                show={modals.livestream} 
-                onClose={() => handleCloseModal('livestream')} 
-                onMinimize={() => toggleModal('livestream')} 
+            <Modal
+                id="livestream"
+                show={modals.livestream}
+                onClose={() => handleCloseModal('livestream')}
                 title='Livestream'
+                initialPosition={{ right: 50, bottom: 100 }}
             >
                 <Livestream />
             </Modal>
-            {menuOpen && <Menu openAboutModal={() => toggleModal('about')} openLivestreamModal={() => toggleModal('livestream')} openMusicModal={() => toggleModal('music')} />}
+            {menuOpen && <Menu openAboutModal={() => openModal('about')} openLivestreamModal={() => openModal('livestream')} openMusicModal={() => openModal('music')} />}
             <div className="taskbar">
                 <div className="start-button" onClick={toggleMenu} tabIndex={0}>
                     <div className='border'>
@@ -115,24 +118,18 @@ export default function TaskBar() {
                     </div>
                 </div>
                 <div className="taskbar-icons">
-                    {modalContentVisible.about &&
-                        <div className={`tab ${modals.about ? 'tab-selected' : ''}`} onClick={() => toggleModal('about')}>
-                            <img src={notepadIcon} alt="Notepad logo" />
-                            <span>About me</span>
-                        </div>
-                    }
-                    {modalContentVisible.livestream &&
-                        <div className={`tab ${modals.livestream ? 'tab-selected' : ''}`} onClick={() => toggleModal('livestream')}>
-                            <img src={notepadIcon} alt="Livestream" />
-                            <span>Livestream</span>
-                        </div>
-                    }
-                    {modalContentVisible.music &&
-                        <div className={`tab ${modals.music ? 'tab-selected' : ''}`} onClick={() => toggleModal('music')}>
-                            <img src={notepadIcon} alt="Music" />
-                            <span>Music</span>
-                        </div>
-                    }
+                    <div className={`tab ${modals.about ? 'tab-selected' : ''}`} onClick={() => toggleModal('about')}>
+                        <img src={notepadIcon} alt="Notepad logo" />
+                        <span>About me</span>
+                    </div>
+                    <div className={`tab ${modals.livestream ? 'tab-selected' : ''}`} onClick={() => toggleModal('livestream')}>
+                        <img src={notepadIcon} alt="Livestream" />
+                        <span>Livestream</span>
+                    </div>
+                    <div className={`tab ${modals.music ? 'tab-selected' : ''}`} onClick={() => toggleModal('music')}>
+                        <img src={notepadIcon} alt="Music" />
+                        <span>Music</span>
+                    </div>
                 </div>
                 <div className="taskbar-time">
                     <span>{currentHour}</span>

@@ -1,0 +1,19 @@
+.icon {
+    width: 80px; /* Set the width of your icon */
+    height: 60px; /* Set the height of your icon */
+    display: flex; /* Set the display property to flex */
+    flex-direction: column;
+    justify-content: center; /* Center the content vertically */
+    align-items: center; /* Center the content horizontally */
+}
+
+.icon span {
+    flex: 1; /* Allow the text to take up remaining space */
+    text-align: center; /* Center the text */
+}
+
+.icon img {
+    height: 60%; /* Set the height of the image to auto */
+    aspect-ratio: 1;
+    object-fit: contain; /* Set the object-fit property to contain */
+}
