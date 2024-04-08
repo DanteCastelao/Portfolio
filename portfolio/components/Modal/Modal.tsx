@@ -15,7 +15,6 @@ interface ModalProps {
 const Modal: React.FC<ModalProps> = ({ id, show, onClose, children, title, onMinimize, initialPosition, icon }) => {
     const [modalStyle, setModalStyle] = useState<React.CSSProperties>({ zIndex: 1 });
     const [zIndex, setZIndex] = useState<number>(1);
-    const [modalOrder, setModalOrder] = useState<string[]>([]);
 
     useEffect(() => {
         const storedPosition = localStorage.getItem(id);
@@ -38,13 +37,13 @@ const Modal: React.FC<ModalProps> = ({ id, show, onClose, children, title, onMin
             header.onmousedown = dragMouseDown;
     
             function dragMouseDown(e: MouseEvent) {
-                if (e.target !== header) return; // Only allow dragging if the click is on the header
+                if (e.target !== header) return;
                 e.preventDefault();
                 pos3 = e.clientX;
                 pos4 = e.clientY;
                 document.onmouseup = closeDragElement;
                 document.onmousemove = elementDrag;
-                updateModalOrder(id);
+                updateModalOrder();
             }
     
             function elementDrag(e: MouseEvent) {
@@ -75,14 +74,13 @@ const Modal: React.FC<ModalProps> = ({ id, show, onClose, children, title, onMin
         const header = modalElement?.getElementsByClassName('modal-header')[0] as HTMLElement;
         if (modalElement && header) {
             dragElement(modalElement, header);
-            updateModalOrder(id);
+            updateModalOrder();
         }
-    }, [id, show, zIndex]);    
+    }, [id, show, zIndex]); 
 
     useEffect(() => {
         const handleUnload = () => {
             localStorage.removeItem(id);
-            removeFromModalOrder(id);
         };
 
         window.addEventListener('beforeunload', handleUnload);
@@ -95,21 +93,10 @@ const Modal: React.FC<ModalProps> = ({ id, show, onClose, children, title, onMin
     const handleClose = () => {
         onClose();
         localStorage.removeItem(id);
-        removeFromModalOrder(id);
     };
 
-    const updateModalOrder = (modalId: string) => {
-        setModalOrder(prevOrder => {
-            const newOrder = prevOrder.filter(id => id !== modalId);
-            newOrder.push(modalId);
-            return newOrder;
-        });
-
+    const updateModalOrder = () => {
         setZIndex(prevZIndex => prevZIndex + 1);
-    };
-
-    const removeFromModalOrder = (modalId: string) => {
-        setModalOrder(prevOrder => prevOrder.filter(id => id !== modalId));
     };
 
     return (

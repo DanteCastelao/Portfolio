@@ -1,4 +1,4 @@
-import React, { useState, useRef, useEffect, ChangeEvent } from 'react';
+import { useState, useRef, useEffect, ChangeEvent } from 'react';
 import './Music.css';
 
 interface MusicProps {}
@@ -75,6 +75,7 @@ const Music: React.FC<MusicProps> = () => {
         <div className='music'>
             <div className='screen'>
                 <div className='marquee-area'>
+                    // @ts-ignore
                     <marquee scrollamount="5" className='marquee-text'>{songs[currentSongIndex].title}</marquee>
                 </div>
                 <div>{formatTime(currentTime)} / {formatTime(duration)}</div>
@@ -86,7 +87,7 @@ const Music: React.FC<MusicProps> = () => {
                 </div>
                 <input type='range' min='0' max='0.5' step='0.01' onChange={handleVolumeChange} />
             </div>
-            <audio ref={audioRef} autoPlay src={songs[currentSongIndex].url} />
+            <audio ref={audioRef} src={songs[currentSongIndex].url} />
         </div>
     );
 };

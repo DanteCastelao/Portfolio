@@ -12,6 +12,7 @@
     overflow: hidden;
     overflow-y: hidden;
     align-items: center;
+    user-select: none;
 }
 
 .screen {

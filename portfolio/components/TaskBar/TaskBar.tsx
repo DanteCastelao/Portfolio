@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
 import './TaskBar.css';
 import win95logo from '../../assets/win95logo.png';
 import Menu from '../Menu/Menu';
