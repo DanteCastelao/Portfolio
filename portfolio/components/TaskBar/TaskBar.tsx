@@ -19,6 +19,11 @@ export default function TaskBar() {
         livestream: true,
         music: true
     });
+    const [modalsTabs, setModalsTabs] = useState({
+        about: false,
+        livestream: true,
+        music: true
+    });
 
     const toggleMenu = () => {
         setMenuOpen(!menuOpen);
@@ -37,11 +42,19 @@ export default function TaskBar() {
             ...prevState,
             [modalName]: true
         }));
+        setModalsTabs(prevState => ({
+            ...prevState,
+            [modalName]: true
+        }));
         setMenuOpen(false);
     };
 
     const handleCloseModal = (modalName: keyof typeof modals) => {
         setModals(prevState => ({
+            ...prevState,
+            [modalName]: false
+        }));
+        setModalsTabs(prevState => ({
             ...prevState,
             [modalName]: false
         }));
@@ -123,18 +136,24 @@ export default function TaskBar() {
                     </div>
                 </div>
                 <div className="taskbar-icons">
-                    <div className={`tab ${modals.about ? 'tab-selected' : ''}`} onClick={() => toggleModal('about')}>
-                        <img src={notepadIcon} alt="Notepad logo" />
-                        <span>About me</span>
-                    </div>
-                    <div className={`tab ${modals.livestream ? 'tab-selected' : ''}`} onClick={() => toggleModal('livestream')}>
-                        <img src={livestreamIcon} alt="Livestream" />
-                        <span>Livestream</span>
-                    </div>
-                    <div className={`tab ${modals.music ? 'tab-selected' : ''}`} onClick={() => toggleModal('music')}>
-                        <img src={musicIcon} alt="Music" />
-                        <span>Music</span>
-                    </div>
+                    {modalsTabs.about && 
+                        <div className={`tab ${modals.about ? 'tab-selected' : ''}`} onClick={() => toggleModal('about')}>
+                            <img src={notepadIcon} alt="Notepad logo" />
+                            <span>About me</span>
+                        </div>
+                    }
+                    {modalsTabs.livestream &&
+                        <div className={`tab ${modals.livestream ? 'tab-selected' : ''}`} onClick={() => toggleModal('livestream')}>
+                            <img src={livestreamIcon} alt="Livestream" />
+                            <span>Livestream</span>
+                        </div>
+                    }
+                    {modalsTabs.music && 
+                        <div className={`tab ${modals.music ? 'tab-selected' : ''}`} onClick={() => toggleModal('music')}>
+                            <img src={musicIcon} alt="Music" />
+                            <span>Music</span>
+                        </div>
+                    }
                 </div>
                 <div className="taskbar-time">
                     <span>{currentHour}</span>

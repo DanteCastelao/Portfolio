@@ -28,16 +28,17 @@ const Modal: React.FC<ModalProps> = ({ id, show, onClose, children, title, onMin
 
     useEffect(() => {
         if (!show) return;
-
-        const dragElement = (el: HTMLElement) => {
+    
+        const dragElement = (el: HTMLElement, header: HTMLElement) => {
             let pos1 = 0,
                 pos2 = 0,
                 pos3 = 0,
                 pos4 = 0;
-
-            el.onmousedown = dragMouseDown;
-
+    
+            header.onmousedown = dragMouseDown;
+    
             function dragMouseDown(e: MouseEvent) {
+                if (e.target !== header) return; // Only allow dragging if the click is on the header
                 e.preventDefault();
                 pos3 = e.clientX;
                 pos4 = e.clientY;
@@ -45,7 +46,7 @@ const Modal: React.FC<ModalProps> = ({ id, show, onClose, children, title, onMin
                 document.onmousemove = elementDrag;
                 updateModalOrder(id);
             }
-
+    
             function elementDrag(e: MouseEvent) {
                 e.preventDefault();
                 pos1 = pos3 - e.clientX;
@@ -55,7 +56,7 @@ const Modal: React.FC<ModalProps> = ({ id, show, onClose, children, title, onMin
                 el.style.top = el.offsetTop - pos2 + 'px';
                 el.style.left = el.offsetLeft - pos1 + 'px';
             }
-
+    
             function closeDragElement() {
                 document.onmouseup = null;
                 document.onmousemove = null;
@@ -69,13 +70,14 @@ const Modal: React.FC<ModalProps> = ({ id, show, onClose, children, title, onMin
                 localStorage.setItem(id, JSON.stringify(newStyle));
             }
         };
-
+    
         const modalElement = document.getElementById(id);
-        if (modalElement) {
-            dragElement(modalElement);
+        const header = modalElement?.getElementsByClassName('modal-header')[0] as HTMLElement;
+        if (modalElement && header) {
+            dragElement(modalElement, header);
             updateModalOrder(id);
         }
-    }, [id, show, zIndex]);
+    }, [id, show, zIndex]);    
 
     useEffect(() => {
         const handleUnload = () => {
