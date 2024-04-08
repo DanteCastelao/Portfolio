@@ -75,7 +75,7 @@ const Music: React.FC<MusicProps> = () => {
         <div className='music'>
             <div className='screen'>
                 <div className='marquee-area'>
-                    // @ts-ignore
+                    {/* @ts-ignore*/}
                     <marquee scrollamount="5" className='marquee-text'>{songs[currentSongIndex].title}</marquee>
                 </div>
                 <div>{formatTime(currentTime)} / {formatTime(duration)}</div>
