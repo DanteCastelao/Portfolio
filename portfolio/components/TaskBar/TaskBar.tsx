@@ -100,6 +100,7 @@ export default function TaskBar() {
             <Modal
                 id="about"
                 show={modals.about}
+                onMinimize={ () => toggleModal('about')}
                 onClose={() => handleCloseModal('about')}
                 title='About me'
                 initialPosition={{ right: 500, bottom: 300}}
@@ -110,6 +111,7 @@ export default function TaskBar() {
             <Modal
                 id="music"
                 show={modals.music}
+                onMinimize={ () => toggleModal('music')}
                 onClose={() => handleCloseModal('music')}
                 title='Music'
                 initialPosition={{ right: 50, bottom: 400 }}
@@ -120,6 +122,7 @@ export default function TaskBar() {
             <Modal
                 id="livestream"
                 show={modals.livestream}
+                onMinimize={ () => toggleModal('livestream')}
                 onClose={() => handleCloseModal('livestream')}
                 title='Livestream'
                 initialPosition={{ right: 50, bottom: 100 }}
