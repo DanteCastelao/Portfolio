@@ -10,6 +10,12 @@ import Livestream from '../Livestream/Livestream';
 import About from '../About/About';
 import Music from '../Music/Music';
 import Icon from '../Icon/Icon';
+import Nomore from '../Nomore/Nomore';
+import Agorar from '../Agorar/Agorar';
+import Veigarv2 from '../Veigarv2/Veigarv2';
+import agorarIcon from '../../assets/agorarIcon.png';
+import nomoreIcon from '../../assets/nomoreIcon.png';
+import veigarv2Icon from '../../assets/veigarv2Icon.png';
 
 export default function TaskBar() {
     const [menuOpen, setMenuOpen] = useState(false);
@@ -17,12 +23,18 @@ export default function TaskBar() {
     const [modals, setModals] = useState({
         about: false,
         livestream: true,
-        music: true
+        music: true,
+        nomore: false,
+        agorar: false,
+        veigarv2: false
     });
     const [modalsTabs, setModalsTabs] = useState({
         about: false,
         livestream: true,
-        music: true
+        music: true,
+        nomore: false,
+        agorar: false,
+        veigarv2: false
     });
 
     const toggleMenu = () => {
@@ -98,6 +110,39 @@ export default function TaskBar() {
                 <Icon icon={musicIcon} text="Music" onClick={() => openModal('music')} />
             </div>
             <Modal
+                id="veigarv2"
+                show={modals.veigarv2}
+                onMinimize={ () => toggleModal('veigarv2')}
+                onClose={() => handleCloseModal('veigarv2')}
+                title='Veigar v2 Coaching Website'
+                initialPosition={{ right: 500, bottom: 300}}
+                icon={veigarv2Icon}
+            >
+                <Veigarv2 />
+            </Modal>
+            <Modal
+                id="agorar"
+                show={modals.agorar}
+                onMinimize={ () => toggleModal('agorar')}
+                onClose={() => handleCloseModal('agorar')}
+                title='Agorar'
+                initialPosition={{ right: 500, bottom: 300}}
+                icon={agorarIcon}
+            >
+                <Agorar />
+            </Modal>
+            <Modal
+                id="nomore"
+                show={modals.nomore}
+                onMinimize={ () => toggleModal('nomore')}
+                onClose={() => handleCloseModal('nomore')}
+                title='Nomore'
+                initialPosition={{ right: 500, bottom: 300}}
+                icon={nomoreIcon}
+            >
+                <Nomore />
+            </Modal>
+            <Modal
                 id="about"
                 show={modals.about}
                 onMinimize={ () => toggleModal('about')}
@@ -130,7 +175,7 @@ export default function TaskBar() {
             >
                 <Livestream />
             </Modal>
-            {menuOpen && <Menu openAboutModal={() => openModal('about')} openLivestreamModal={() => openModal('livestream')} openMusicModal={() => openModal('music')} />}
+            {menuOpen && <Menu openVeigarv2Modal={() => openModal("veigarv2")} openAgorarModal={() => openModal("agorar")} openNomoreModal={() => openModal('nomore')} openAboutModal={() => openModal('about')} openLivestreamModal={() => openModal('livestream')} openMusicModal={() => openModal('music')} />}
             <div className="taskbar">
                 <div className="start-button" onClick={toggleMenu} tabIndex={0}>
                     <div className='border'>
@@ -139,12 +184,6 @@ export default function TaskBar() {
                     </div>
                 </div>
                 <div className="taskbar-icons">
-                    {modalsTabs.about && 
-                        <div className={`tab ${modals.about ? 'tab-selected' : ''}`} onClick={() => toggleModal('about')}>
-                            <img src={notepadIcon} alt="Notepad logo" />
-                            <span>About me</span>
-                        </div>
-                    }
                     {modalsTabs.livestream &&
                         <div className={`tab ${modals.livestream ? 'tab-selected' : ''}`} onClick={() => toggleModal('livestream')}>
                             <img src={livestreamIcon} alt="Livestream" />
@@ -155,6 +194,30 @@ export default function TaskBar() {
                         <div className={`tab ${modals.music ? 'tab-selected' : ''}`} onClick={() => toggleModal('music')}>
                             <img src={musicIcon} alt="Music" />
                             <span>Music</span>
+                        </div>
+                    }
+                    {modalsTabs.about && 
+                        <div className={`tab ${modals.about ? 'tab-selected' : ''}`} onClick={() => toggleModal('about')}>
+                            <img src={notepadIcon} alt="Notepad logo" />
+                            <span>About me</span>
+                        </div>
+                    }
+                    {modalsTabs.nomore && 
+                        <div className={`tab ${modals.nomore ? 'tab-selected' : ''}`} onClick={() => toggleModal('nomore')}>
+                            <img src={nomoreIcon} alt="Nomore logo" />
+                            <span>Nomore</span>
+                        </div>
+                    }
+                    {modalsTabs.agorar && 
+                        <div className={`tab ${modals.agorar ? 'tab-selected' : ''}`} onClick={() => toggleModal('agorar')}>
+                            <img src={agorarIcon} alt="Agorar logo" />
+                            <span>Agorar</span>
+                        </div>
+                    }
+                    {modalsTabs.veigarv2 && 
+                        <div className={`tab ${modals.veigarv2 ? 'tab-selected' : ''}`} onClick={() => toggleModal('veigarv2')}>
+                            <img src={veigarv2Icon} alt="Veigarv2 logo" />
+                            <span>Veigar v2</span>
                         </div>
                     }
                 </div>

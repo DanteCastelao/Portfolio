@@ -5,8 +5,11 @@ import programsIcon from '../../assets/programsIcon.png';
 import projectsIcon from '../../assets/projectsIcon.png';
 import musicIcon from '../../assets/musicIcon.png';
 import livestreamIcon from '../../assets/livestreamIcon.png';
+import agorarIcon from '../../assets/agorarIcon.png';
+import nomoreIcon from '../../assets/nomoreIcon.png';
+import veigarv2Icon from '../../assets/veigarv2Icon.png';
 
-export default function Menu({ openAboutModal, openLivestreamModal, openMusicModal }: { openAboutModal: () => void, openLivestreamModal: () => void, openMusicModal: () => void}) {
+export default function Menu({ openVeigarv2Modal, openAgorarModal, openNomoreModal, openAboutModal, openLivestreamModal, openMusicModal }: { openVeigarv2Modal: () => void, openAgorarModal: () => void, openNomoreModal: () => void, openAboutModal: () => void, openLivestreamModal: () => void, openMusicModal: () => void}) {
     return (
         <div className="menu">
             <div className='wordmark'/>
@@ -17,16 +20,16 @@ export default function Menu({ openAboutModal, openLivestreamModal, openMusicMod
                         <span>Projects</span>
                         <div className="submenu">
                             <div className='sublist'>
-                                <div>
-                                    <img src={shutdownIcon} alt="Shutdown icon"/>
-                                    <span>Zone</span>
+                                <div onClick={openVeigarv2Modal}>
+                                    <img src={veigarv2Icon} alt="Veigarv2 icon"/>
+                                    <span>Veigar v2</span>
                                 </div>
-                                <div>
-                                    <img src={shutdownIcon} alt="Shutdown icon"/>
+                                <div onClick={openNomoreModal}>
+                                    <img src={nomoreIcon} alt="Nomore icon"/>
                                     <span>Nomore</span>
                                 </div>
-                                <div>
-                                    <img src={shutdownIcon} alt="Shutdown icon"/>
+                                <div onClick={openAgorarModal}>
+                                    <img src={agorarIcon} alt="Agorar icon"/>
                                     <span>Agorar</span>
                                 </div>
                             </div>
