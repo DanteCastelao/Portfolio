@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import { useState, useEffect } from 'react';
 import './TaskBar.css';
 import win95logo from '../../assets/win95logo.png';
 import Menu from '../Menu/Menu';
@@ -36,17 +36,24 @@ export default function TaskBar() {
         agorar: false,
         veigarv2: false
     });
+    const [modalPositions, setModalPositions] = useState({
+        about: { left: 500, top: 300 },
+        livestream: { left: 50, top: 100 },
+        music: { left: 50, top: 400 },
+        nomore: { left: 500, top: 300 },
+        agorar: { left: 500, top: 300 },
+        veigarv2: { left: 500, top: 300 }
+    });
+    const [modalOrder, setModalOrder] = useState<('about' | 'livestream' | 'music' | 'nomore' | 'agorar' | 'veigarv2')[]>([]);
+
+    useEffect(() => {
+        const initialOrder = Object.keys(modals).filter(key => modals[key as keyof typeof modals]);
+        setModalOrder(initialOrder as ('about' | 'livestream' | 'music' | 'nomore' | 'agorar' | 'veigarv2')[]);
+    }, []);
+
 
     const toggleMenu = () => {
         setMenuOpen(!menuOpen);
-    };
-
-    const toggleModal = (modalName: keyof typeof modals) => {
-        setModals(prevState => ({
-            ...prevState,
-            [modalName]: !prevState[modalName]
-        }));
-        setMenuOpen(false);
     };
 
     const openModal = (modalName: keyof typeof modals) => {
@@ -59,6 +66,16 @@ export default function TaskBar() {
             [modalName]: true
         }));
         setMenuOpen(false);
+        handleModalClick(modalName);
+    };
+    
+    const toggleModal = (modalName: keyof typeof modals) => {
+        setModals(prevState => ({
+            ...prevState,
+            [modalName]: !prevState[modalName]
+        }));
+        setMenuOpen(false);
+        handleModalClick(modalName);
     };
 
     const handleCloseModal = (modalName: keyof typeof modals) => {
@@ -70,6 +87,12 @@ export default function TaskBar() {
             ...prevState,
             [modalName]: false
         }));
+    };
+
+    const handleModalClick = (id: keyof typeof modals) => {
+        const newOrder = modalOrder.filter(orderId => orderId !== id);
+        newOrder.push(id);
+        setModalOrder(newOrder);
     };
 
     useEffect(() => {
@@ -109,72 +132,80 @@ export default function TaskBar() {
                 <Icon icon={livestreamIcon} text="Livestream" onClick={() => openModal('livestream')} />
                 <Icon icon={musicIcon} text="Music" onClick={() => openModal('music')} />
             </div>
-            <Modal
-                id="veigarv2"
-                show={modals.veigarv2}
-                onMinimize={ () => toggleModal('veigarv2')}
-                onClose={() => handleCloseModal('veigarv2')}
-                title='Veigar v2 Coaching Website'
-                initialPosition={{ right: 500, bottom: 300}}
-                icon={veigarv2Icon}
-            >
-                <Veigarv2 />
-            </Modal>
-            <Modal
-                id="agorar"
-                show={modals.agorar}
-                onMinimize={ () => toggleModal('agorar')}
-                onClose={() => handleCloseModal('agorar')}
-                title='Agorar'
-                initialPosition={{ right: 500, bottom: 300}}
-                icon={agorarIcon}
-            >
-                <Agorar />
-            </Modal>
-            <Modal
-                id="nomore"
-                show={modals.nomore}
-                onMinimize={ () => toggleModal('nomore')}
-                onClose={() => handleCloseModal('nomore')}
-                title='Nomore'
-                initialPosition={{ right: 500, bottom: 300}}
-                icon={nomoreIcon}
-            >
-                <Nomore />
-            </Modal>
-            <Modal
-                id="about"
-                show={modals.about}
-                onMinimize={ () => toggleModal('about')}
-                onClose={() => handleCloseModal('about')}
-                title='About me'
-                initialPosition={{ right: 500, bottom: 300}}
-                icon={notepadIcon}
-            >
-                <About />
-            </Modal>
-            <Modal
-                id="music"
-                show={modals.music}
-                onMinimize={ () => toggleModal('music')}
-                onClose={() => handleCloseModal('music')}
-                title='Music'
-                initialPosition={{ right: 50, bottom: 400 }}
-                icon={musicIcon}
-            >
-                <Music />
-            </Modal>
-            <Modal
-                id="livestream"
-                show={modals.livestream}
-                onMinimize={ () => toggleModal('livestream')}
-                onClose={() => handleCloseModal('livestream')}
-                title='Livestream'
-                initialPosition={{ right: 50, bottom: 100 }}
-                icon={livestreamIcon}
-            >
-                <Livestream />
-            </Modal>
+                            <Modal
+                                id="veigarv2"
+                                show={modals.veigarv2}
+                                onMinimize={() => toggleModal('veigarv2')}
+                                onClose={() => handleCloseModal('veigarv2')}
+                                title='Veigar v2 Coaching Website'
+                                icon={veigarv2Icon}
+                                onModalClick={() => handleModalClick("veigarv2")}
+                                style={{ zIndex: modalOrder.indexOf("veigarv2") + 1, left: modalPositions["veigarv2"].left, top: modalPositions["veigarv2"].top, display: modals.veigarv2 ? 'block' : 'none' }}
+                            >
+                                <Veigarv2 />
+                            </Modal>
+                        
+                            <Modal
+                                id="agorar"
+                                show={modals.agorar}
+                                onMinimize={() => toggleModal('agorar')}
+                                onClose={() => handleCloseModal('agorar')}
+                                title='Agorar'
+                                icon={agorarIcon}
+                                onModalClick={() => handleModalClick("agorar")}
+                                style={{ zIndex: modalOrder.indexOf("agorar") + 1, left: modalPositions["agorar"].left, top: modalPositions["agorar"].top, display: modals.agorar ? 'block' : 'none' }}
+                            >
+                                <Agorar />
+                            </Modal>
+                        
+                            <Modal
+                                id="nomore"
+                                show={modals.nomore}
+                                onMinimize={() => toggleModal('nomore')}
+                                onClose={() => handleCloseModal('nomore')}
+                                title='Nomore'
+                                icon={nomoreIcon}
+                                onModalClick={() => handleModalClick("nomore")}
+                                style={{ zIndex: modalOrder.indexOf("nomore") + 1, left: modalPositions["nomore"].left, top: modalPositions["nomore"].top, display: modals.nomore ? 'block' : 'none' }}
+                            >
+                                <Nomore />
+                            </Modal>
+                            <Modal
+                                id="about"
+                                show={modals.about}
+                                onMinimize={() => toggleModal('about')}
+                                onClose={() => handleCloseModal('about')}
+                                title='About me'
+                                icon={notepadIcon}
+                                onModalClick={() => handleModalClick("about")}
+                                style={{ zIndex: modalOrder.indexOf("about") + 1, left: modalPositions["about"].left, top: modalPositions["about"].top, display: modals.about ? 'block' : 'none' }}
+                            >
+                                <About />
+                            </Modal>
+                            <Modal
+                                id="livestream"
+                                show={modals.livestream}
+                                onMinimize={() => toggleModal('livestream')}
+                                onClose={() => handleCloseModal('livestream')}
+                                title='Livestream'
+                                icon={livestreamIcon}
+                                onModalClick={() => handleModalClick("livestream")}
+                                style={{ zIndex: modalOrder.indexOf("livestream") + 1, left: modalPositions["livestream"].left, top: modalPositions["livestream"].top, display: modals.livestream ? 'block' : 'none' }}
+                            >
+                                <Livestream />
+                            </Modal>
+                            <Modal
+                                id="music"
+                                show={modals.music}
+                                onMinimize={() => toggleModal('music')}
+                                onClose={() => handleCloseModal('music')}
+                                title='Music'
+                                icon={musicIcon}
+                                onModalClick={() => handleModalClick("music")}
+                                style={{ zIndex: modalOrder.indexOf("music") + 1, left: modalPositions["music"].left, top: modalPositions["music"].top, display: modals.music ? 'block' : 'none' }}
+                            >
+                                <Music />
+                            </Modal>
             {menuOpen && <Menu openVeigarv2Modal={() => openModal("veigarv2")} openAgorarModal={() => openModal("agorar")} openNomoreModal={() => openModal('nomore')} openAboutModal={() => openModal('about')} openLivestreamModal={() => openModal('livestream')} openMusicModal={() => openModal('music')} />}
             <div className="taskbar">
                 <div className="start-button" onClick={toggleMenu} tabIndex={0}>
