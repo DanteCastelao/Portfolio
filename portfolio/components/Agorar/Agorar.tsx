@@ -9,10 +9,16 @@ export default function Agorar() {
                 <span className='title'>Agorar (Enero 2024)</span>
                 <span className='subtitle'>Desarrollador Full-Stack y Diseñador UX-UI</span>
             </div>
+            <div className='category'>
+                <span className='next'>Next</span>
+                <span className='react'>React</span>
+                <span className='express'>Express.js</span>
+                <span className='mongodb'>MongoDB</span>
+            </div>
             <span>
                 Agorar es una pagina web que proporciona seguimiento en tiempo real del estado de las temáticas relacionadas con el Mega DNU y la Ley Ómnibus. Utilize Express.js para el backend y Next.js para el frontend.
             </span>
-            <a href='https://www.agorar.com.ar'>https://www.agorar.com.ar</a>
+            <a href='https://www.agorar.com.ar' target="_blank">https://www.agorar.com.ar</a>
         </div>
     );
 }

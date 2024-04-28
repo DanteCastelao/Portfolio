@@ -9,13 +9,17 @@ export default function Veigarv2() {
                 <span className='title'>Veigar v2 Coaching Website (Noviembre 2023)</span>
                 <span className='subtitle'>Desarrollador Front-End y Diseñador UX-UI</span>
             </div>
+            <div className='category'>
+                <span className='astro'>Astro</span>
+                <span className='react'>React</span>
+            </div>
             <span>
                 Revitalice una plataforma de coaching para League of Legends.
                 Rediseñada para tener un impacto significativo, brindar una
                 experiencia fluida para los jugadores y elevar la presencia en
                 línea del entrenador.
             </span>
-            <a href='https://veigar-v2-webpage.vercel.app/'>Veigar v2 Website</a>
+            <a href='https://veigar-v2-webpage.vercel.app/' target="_blank">Veigar v2 Website</a>
         </div>
     );
 }

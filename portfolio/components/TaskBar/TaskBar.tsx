@@ -37,12 +37,12 @@ export default function TaskBar() {
         veigarv2: false
     });
     const [modalPositions, setModalPositions] = useState({
-        about: { left: 500, top: 300 },
+        about: { left: 150, top: 75 },
         livestream: { left: 50, top: 100 },
         music: { left: 50, top: 400 },
-        nomore: { left: 500, top: 300 },
-        agorar: { left: 500, top: 300 },
-        veigarv2: { left: 500, top: 300 }
+        nomore: { left: 150, top: 75 },
+        agorar: { left: 150, top: 75 },
+        veigarv2: { left: 150, top: 75 }
     });
     const [modalOrder, setModalOrder] = useState<('about' | 'livestream' | 'music' | 'nomore' | 'agorar' | 'veigarv2')[]>([]);
 
@@ -190,7 +190,7 @@ export default function TaskBar() {
                                 title='Livestream'
                                 icon={livestreamIcon}
                                 onModalClick={() => handleModalClick("livestream")}
-                                style={{ zIndex: modalOrder.indexOf("livestream") + 1, left: modalPositions["livestream"].left, top: modalPositions["livestream"].top, display: modals.livestream ? 'block' : 'none' }}
+                                style={{ zIndex: modalOrder.indexOf("livestream") + 1, right: modalPositions["livestream"].left, bottom: modalPositions["livestream"].top, display: modals.livestream ? 'block' : 'none' }}
                             >
                                 <Livestream />
                             </Modal>
@@ -202,7 +202,7 @@ export default function TaskBar() {
                                 title='Music'
                                 icon={musicIcon}
                                 onModalClick={() => handleModalClick("music")}
-                                style={{ zIndex: modalOrder.indexOf("music") + 1, left: modalPositions["music"].left, top: modalPositions["music"].top, display: modals.music ? 'block' : 'none' }}
+                                style={{ zIndex: modalOrder.indexOf("music") + 1, right: modalPositions["music"].left, bottom: modalPositions["music"].top, display: modals.music ? 'block' : 'none' }}
                             >
                                 <Music />
                             </Modal>

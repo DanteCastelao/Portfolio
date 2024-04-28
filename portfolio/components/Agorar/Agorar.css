@@ -46,3 +46,32 @@
     outline-offset: -4px;
     border-radius: 0;
 }
+.category {
+    display: flex;
+    gap: 4px;
+    font-weight: bold;
+}
+.next {
+    background-color: #000;
+    color: #fff;
+    padding: 4px 8px;
+    border-radius: 2px;
+}
+.react {
+    background-color: #1C1F26;
+    color: #149ECA;
+    padding: 4px 8px;
+    border-radius: 2px;
+}
+.express {
+    background-color: #222222;
+    color: #fff;
+    padding: 4px 8px;
+    border-radius: 2px;
+}
+.mongodb {
+    background-color: #001E2B;
+    color: #00ED64;
+    padding: 4px 8px;
+    border-radius: 2px;
+}
