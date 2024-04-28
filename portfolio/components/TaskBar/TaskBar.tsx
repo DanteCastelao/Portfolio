@@ -36,7 +36,7 @@ export default function TaskBar() {
         agorar: false,
         veigarv2: false
     });
-    const [modalPositions, setModalPositions] = useState({
+    const [modalPositions] = useState({
         about: { left: 150, top: 75 },
         livestream: { left: 50, top: 100 },
         music: { left: 50, top: 400 },
