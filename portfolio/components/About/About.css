@@ -1,0 +1,41 @@
+.about {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    padding: 4px;
+    height: 500px;
+    overflow: auto;
+    background-color: #C3C3C3;
+    border-left: 4px solid #000;
+    border-top: 2px solid #000;
+    border-bottom: 2px solid #000;
+    border-right: 4px solid #000;
+    outline: 4px inset #fff;
+    box-sizing: border-box;
+    color: #000;
+    width: 50vw;
+    padding: 16px 20%;
+}
+@media screen and (max-width: 1700px){
+    .about {
+        width: 80vw;
+        padding: 16px 10%;
+    }
+}
+.name {
+    font-size: 1.5rem;
+    font-family: "MS Sans bold";
+    margin-bottom: 0.8rem;
+}
+.aboutme {
+    margin-top: 2rem;
+    font-size: 1.1rem;
+    font-family: "MS Sans bold";
+}
+.paragraph {
+    margin-top: 0.7rem;
+    display: flex;
+    flex-direction: column;
+    font-size: 1.1rem;
+    gap: 0.5rem;
+}

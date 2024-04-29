@@ -1,0 +1,111 @@
+.music {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    padding: 4px;
+    width: 100%;
+    overflow: auto;
+    background-color: #C1C6C9;
+    box-sizing: border-box;
+    color: #000;
+    width: 20vw;
+    overflow: hidden;
+    overflow-y: hidden;
+    align-items: center;
+    user-select: none;
+}
+
+.screen {
+    display: flex;
+    flex-direction: row;
+    overflow: auto;
+    background-color: #000;
+    box-sizing: border-box;
+    width: 85%;
+    aspect-ratio: 10/2;
+    overflow: hidden;
+    color: #fff;
+    padding: 16px;
+    justify-content: space-between;
+}
+
+.marquee-area {
+    display: flex;
+    flex-direction: row;
+    gap: 16px;
+    width: 65%;
+    overflow: hidden;
+}
+
+.marquee-text {
+    display: inline-block;
+}
+
+input[type="range"] {
+    -webkit-appearance: none;
+    appearance: none;
+    background: transparent;
+    cursor: pointer;
+}
+                       
+input[type="range"]::-webkit-slider-runnable-track {
+    background: #000;
+    height: 8px;
+    border: 2px solid #fff;
+}
+
+input[type="range"]::-moz-range-track {
+    background: #000;
+    height: 4px;
+    border: 2px solid #fff;
+}
+
+::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 12px;
+    height: 16px;
+    background: #C4C4C4;
+    cursor: pointer;
+    border-left: 2px solid #C1C6C9;
+    border-top: 2px solid #C1C6C9;
+    border-bottom: 2px solid #000;
+    border-right: 2px solid #000;;
+    outline-offset: -4px;
+    box-sizing: border-box;
+    margin-top: -4px;
+}
+
+.controls {
+    display: flex;
+    flex-direction: row;
+    gap: 16px;
+    width: 100%;
+    justify-content: center;
+    align-items: center;
+}
+
+.options {
+    display: flex;
+    flex-direction: row;
+    gap: 8px;
+    justify-content: center;
+}
+
+.options div {
+    color: #000;
+    background-color: #C3C7CB; 
+    border-left: 2px solid #C1C6C9;
+    border-top: 2px solid #C1C6C9;
+    border-bottom: 2px solid #000;
+    border-right: 2px solid #000;
+    outline: 2px outset #fff;
+    outline-offset: -4px;
+    padding: 4px 8px;
+    height: 40%;
+    aspect-ratio: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+}

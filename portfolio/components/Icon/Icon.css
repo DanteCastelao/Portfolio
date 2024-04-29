@@ -1,0 +1,27 @@
+.icon {
+    width: 80px;
+    height: 60px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    padding: 5px 0;
+}
+
+.icon:focus {
+    background-color: #008080;
+    border: 1px dotted #fff;
+}
+
+.icon span {
+    flex: 1;
+    text-align: center;
+}
+
+.icon img {
+    height: 60%;
+    aspect-ratio: 1;
+    object-fit: contain;
+}
+

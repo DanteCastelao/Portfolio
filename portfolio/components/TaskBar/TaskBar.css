@@ -1,0 +1,171 @@
+.desktop {
+    display: grid;
+    grid-gap: 30px;
+    padding: 30px;
+}
+.taskbar {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    height: 40px;
+    background-color: #C4C4C4;
+    border: inset 2px #fff;
+    box-sizing: border-box;
+    position: fixed;
+    bottom: 0;
+    color:#000000;
+    justify-content: center;
+    gap: 4px;
+    z-index: 999999999;
+}
+.start-button {
+    display: flex;
+    align-items: center;
+    background-color: #C4C4C4;
+    color: #000;
+    font-size: 1rem;
+    cursor: pointer;
+    gap: 6px;
+    padding: 4px;
+    border-left: 2px solid #C1C6C9;
+    border-top: 2px solid #C1C6C9;
+    border-bottom: 2px solid #000;
+    border-right: 2px solid #000;
+    outline: outset 2px #fff;
+    outline-offset: -4px;
+    box-sizing: border-box;
+}
+.start-button:hover {
+    display: flex;
+    align-items: center;
+    background-color: #C4C4C4;
+    color: #000;
+    font-size: 1rem;
+    cursor: pointer;
+    gap: 6px;
+    padding: 4px;
+    border-left: 2px solid #000;
+    border-top: 2px solid #000;
+    border-bottom: 2px solid #C1C6C9;
+    border-right: 2px solid #C1C6C9;
+    outline: inset 2px #fff;
+    outline-offset: -4px;
+    box-sizing: border-box;
+}
+.start-button:focus {
+    display: flex;
+    align-items: center;
+    background-color: #C4C4C4;
+    color: #000;
+    font-size: 1rem;
+    cursor: pointer;
+    gap: 6px;
+    padding: 4px;
+    border-left: 2px solid #000;
+    border-top: 2px solid #000;
+    border-bottom: 2px solid #C1C6C9;
+    border-right: 2px solid #C1C6C9;
+    outline: inset 2px #fff;
+    outline-offset: -4px;
+    box-sizing: border-box;
+}
+.border {
+    height: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    gap: 4px;
+    box-sizing: border-box;
+    user-select: none;
+}
+.start-button:focus .border {
+    border: dotted 1px #000;
+}
+.winlogo {
+    height: 26px;
+    object-fit: contain;
+
+}
+.taskbar-icons {
+    display: flex;
+    align-items: center;
+    flex-direction: row;
+    gap: 4px;
+}
+@media screen and (max-width: 1700px) {
+    .taskbar-icons {
+        display: none;
+    }
+    
+}
+.taskbar-time {
+    margin-left: auto;
+    margin-right: 10px;
+    display: flex;
+    font-size: 1.1rem;
+    border-left: 2px solid #868A8E;
+    border-top: 2px solid #868A8E;
+    border-bottom: 2px solid #fff;
+    border-right: 2px solid #fff;
+    height: 70%;
+    padding-left: 4px;
+    padding-right: 4px;
+    padding-top: 2px;
+}
+
+.tab {
+    display: flex;
+    align-items: center;
+    border-left: 2px solid #C1C6C9;
+    border-top: 2px solid #C1C6C9;
+    border-bottom: 2px solid #000;
+    border-right: 2px solid #000;
+    outline: outset 2px #fff;
+    outline-offset: -4px !important;
+    background-color: #C4C4C4;
+    color: #000;
+    font-size: 1rem;
+    cursor: pointer;
+    gap: 6px;
+    padding: 4px;
+    width: 140px;
+    background-image: url("../../assets/tile.png");
+}
+
+.tab img {
+    height: 24px;
+    object-fit: contain;
+}
+
+.tab span {
+    user-select: none;
+}
+
+.tab-selected {
+    display: flex;
+    align-items: center;
+    background-color: #C4C4C4;
+    color: #000;
+    font-size: 1rem;
+    cursor: pointer;
+    gap: 6px;
+    padding: 4px;
+    width: 140px;
+    border-left: 2px solid #000;
+    border-top: 2px solid #000;
+    border-bottom: 2px solid #C1C6C9;
+    border-right: 2px solid #C1C6C9;
+    outline: inset 2px #fff;
+    outline-offset: -4px;
+    background-image: url("../../assets/tile.png");
+}
+
+.tab-selected img {
+    height: 24px;
+    object-fit: contain;
+}
+
+.tab-selected span {
+    user-select: none;
+}
