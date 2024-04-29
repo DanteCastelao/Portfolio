@@ -63,7 +63,7 @@ const Modal: React.FC<ModalProps> = ({
                             </div>
                             <div className="buttons">
                                 <div className="button" onClick={onMinimize}>
-                                    _ 
+                                    🗕
                                 </div>
                                 <div className="button" onClick={onClose}>
                                     x
