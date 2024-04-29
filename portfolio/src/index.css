@@ -75,5 +75,5 @@ button:focus-visible {
 }
 @font-face {
   font-family: "MS Sans bold";
-  src: local("MS Sans Serif bold"), url("../fonts/MS\ Sans\ Serif\ Bold.ttf") format("truetype");
+  src: local("MS Sans Serif bold"), url("../fonts/MSSansSerifBold.ttf") format("truetype");
 }
