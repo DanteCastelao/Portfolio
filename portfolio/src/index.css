@@ -28,7 +28,7 @@ body {
   min-width: 320px;
   min-height: 100vh;
   overflow: hidden;
-  background-image: url("./assets/background.png");
+  background-image: url("../assets/background.png");
   background-size: repeat;
 }
 
@@ -71,7 +71,7 @@ button:focus-visible {
 
 @font-face {
   font-family: "MS Sans";
-  src: local("MS Sans Serif"), url("./fonts/W95FA.otf") format("opentype");
+  src: local("MS Sans Serif"), url("../fonts/W95FA.otf") format("opentype");
 }
 @font-face {
   font-family: "MS Sans bold";
