@@ -37,12 +37,12 @@ export default function TaskBar() {
         veigarv2: false
     });
     const [modalPositions] = useState({
-        about: { left: 50, top: 75 },
+        about: { left: 50, top: 50 },
         livestream: { left: 50, top: 100 },
         music: { left: 50, top: 400 },
-        nomore: { left: 50, top: 75 },
-        agorar: { left: 50, top: 75 },
-        veigarv2: { left: 50, top: 75 }
+        nomore: { left: 50, top: 50 },
+        agorar: { left: 50, top: 50 },
+        veigarv2: { left: 50, top: 50 }
     });
     const [modalOrder, setModalOrder] = useState<('about' | 'livestream' | 'music' | 'nomore' | 'agorar' | 'veigarv2')[]>([]);
 
