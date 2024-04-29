@@ -28,11 +28,14 @@
     gap: 4px;
     font-weight: bold;
 }
-
 .title {
     font-size: 1.5rem;
+    font-family: "MS Sans bold";
 }
-
+.subtitle {
+    font-size: 1rem;
+    font-family: "MS Sans bold";
+}
 ::-webkit-scrollbar {
     width: 16px;
 }
