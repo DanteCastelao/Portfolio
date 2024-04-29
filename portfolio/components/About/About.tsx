@@ -3,14 +3,19 @@ import './About.css';
 export default function About() {
     return (
         <div className="about" >
-            <span>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed metus lorem, commodo vitae purus et, semper imperdiet eros. Curabitur viverra congue imperdiet. Aenean quis eros eu orci accumsan scelerisque ut sit amet sapien. Quisque eget viverra ex. Vestibulum mollis, nunc quis faucibus iaculis, dolor nulla accumsan ante, eget molestie dolor neque id eros. Cras eget nulla pretium tortor commodo sagittis ut ut quam. Donec fringilla sagittis varius. Maecenas nec nisl eget nulla posuere posuere. Nulla ac tempus ex, at ornare tortor. Vestibulum at mauris molestie, ullamcorper mauris vitae, blandit ipsum. Maecenas elementum odio in elit aliquam vestibulum. Curabitur sodales enim ut diam pellentesque laoreet. Phasellus accumsan magna diam, in ultricies lorem interdum euismod. Etiam semper tortor neque, sit amet varius arcu volutpat et. Fusce aliquet nibh interdum urna tempus eleifend. Aenean eget hendrerit urna, ac aliquet quam.
-
-Duis et felis non turpis tristique hendrerit eu vel turpis. Nam rhoncus semper vehicula. Etiam sollicitudin orci ullamcorper nisi tristique sodales. Aenean lectus orci, tincidunt non porttitor quis, consequat et ipsum. Pellentesque eleifend libero non quam rutrum finibus. In varius magna non eleifend sagittis. Etiam tempor odio lobortis condimentum ultrices. Duis commodo placerat purus, nec pulvinar magna cursus nec. Nunc lacinia ante in mauris efficitur ultrices. Aenean vitae faucibus erat. Maecenas in erat neque. In non leo eu velit tincidunt congue sed nec lacus. Nam feugiat mattis efficitur. Maecenas cursus rhoncus pellentesque.
-
-Nulla pharetra mollis sem, eu ullamcorper felis malesuada id. Fusce non erat fermentum, facilisis orci eu, euismod tortor. Mauris nec dictum odio, pretium bibendum mi. Suspendisse vel mi vel nulla semper sagittis in vel est. Cras tincidunt ante nec consequat hendrerit. Mauris interdum eleifend est in imperdiet. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; Duis vulputate, leo a porta elementum, risus nisl vehicula ipsum, at varius nibh leo et velit. Morbi vitae libero quis eros tempus eleifend. Integer eu nisi neque. Sed blandit accumsan justo. Suspendisse id lacus accumsan felis tincidunt blandit. Aliquam lorem risus, rutrum vitae est id, fermentum scelerisque lacus. Curabitur nec mi a ipsum maximus placerat. Vivamus sollicitudin risus massa, cursus finibus eros feugiat sit amet. Duis aliquet velit turpis, vitae auctor ligula rhoncus eget.
-
-Phasellus eu ullamcorper nunc, non efficitur sem. Suspendisse potenti. Praesent tempor, dolor at maximus tristique, urna ipsum finibus tortor, id finibus ligula massa a tellus. Donec rhoncus orci dapibus, porttitor ante vitae, ultricies erat. Suspendisse potenti. Aliquam erat volutpat. Donec enim metus, dictum in venenatis non, imperdiet sodales risus. Ut a sollicitudin risus, ac lobortis metus. Vivamus interdum dui in risus aliquam egestas.
-            </span>
+            <span className='name'>Dante Castelao (Frontend Developer)</span>
+            <div className='category'>   
+                <span className='astro'>Astro</span>
+                <span className='next'>Next</span>
+                <span className='react'>React</span>
+                <span className='express'>Express.js</span>
+                <span className='mongodb'>MongoDB</span>
+            </div>
+            <span className='aboutme'>Sobre Mi</span>
+            <div className='paragraph'>
+                <span>Soy un desarrollador frontend con experiencia en React, Typescript, HTML, CSS, Tailwind CSS, JavaScript, Node.js, Express, MongoDB, entre otros.</span>
+                <span>Ahora mismo estoy cursando la Licentura en Ciencias de la Computación en la Universidad de Buenos Aires.</span>
+            </div>
         </div>
     )
 }

@@ -5,18 +5,23 @@
     padding: 4px;
     width: 100%;
     height: 500px;
-    background-color: #fff;
+    background-color: #C3C3C3;
     border-left: 4px solid #000;
     border-top: 2px solid #000;
     border-bottom: 2px solid #000;
     outline: 4px inset #fff;
     box-sizing: border-box;
     color: #000;
-    width: 60vw;
+    width: 50vw;
     padding: 16px 20%;
     overflow-y: scroll;
 }
-
+@media screen and (max-width: 1700px){
+    .veigarv2 {
+        width: 80vw;
+        padding: 16px 10%;
+    }
+}
 .info {
     display: flex;
     flex-direction: column;

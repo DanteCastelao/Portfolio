@@ -21,7 +21,7 @@ export default function TaskBar() {
     const [menuOpen, setMenuOpen] = useState(false);
     const [currentHour, setCurrentHour] = useState('');
     const [modals, setModals] = useState({
-        about: false,
+        about: true,
         livestream: true,
         music: true,
         nomore: false,
@@ -29,7 +29,7 @@ export default function TaskBar() {
         veigarv2: false
     });
     const [modalsTabs, setModalsTabs] = useState({
-        about: false,
+        about: true,
         livestream: true,
         music: true,
         nomore: false,
@@ -37,12 +37,12 @@ export default function TaskBar() {
         veigarv2: false
     });
     const [modalPositions] = useState({
-        about: { left: 150, top: 75 },
+        about: { left: 50, top: 75 },
         livestream: { left: 50, top: 100 },
         music: { left: 50, top: 400 },
-        nomore: { left: 150, top: 75 },
-        agorar: { left: 150, top: 75 },
-        veigarv2: { left: 150, top: 75 }
+        nomore: { left: 50, top: 75 },
+        agorar: { left: 50, top: 75 },
+        veigarv2: { left: 50, top: 75 }
     });
     const [modalOrder, setModalOrder] = useState<('about' | 'livestream' | 'music' | 'nomore' | 'agorar' | 'veigarv2')[]>([]);
 

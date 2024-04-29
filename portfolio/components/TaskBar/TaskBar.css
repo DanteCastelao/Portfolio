@@ -3,7 +3,6 @@
     grid-gap: 30px;
     padding: 30px;
 }
-
 .taskbar {
     display: flex;
     align-items: center;
@@ -19,7 +18,6 @@
     gap: 4px;
     z-index: 999999999;
 }
-
 .start-button {
     display: flex;
     align-items: center;
@@ -37,7 +35,6 @@
     outline-offset: -4px;
     box-sizing: border-box;
 }
-
 .start-button:hover {
     display: flex;
     align-items: center;
@@ -55,7 +52,6 @@
     outline-offset: -4px;
     box-sizing: border-box;
 }
-
 .start-button:focus {
     display: flex;
     align-items: center;
@@ -73,7 +69,6 @@
     outline-offset: -4px;
     box-sizing: border-box;
 }
-
 .border {
     height: 100%;
     display: flex;
@@ -84,25 +79,26 @@
     box-sizing: border-box;
     user-select: none;
 }
-
 .start-button:focus .border {
     border: dotted 1px #000;
 }
-
 .winlogo {
     height: 26px;
     object-fit: contain;
 
 }
-
 .taskbar-icons {
     display: flex;
     align-items: center;
     flex-direction: row;
     gap: 4px;
-
 }
-
+@media screen and (max-width: 1700px) {
+    .taskbar-icons {
+        display: none;
+    }
+    
+}
 .taskbar-time {
     margin-left: auto;
     margin-right: 10px;

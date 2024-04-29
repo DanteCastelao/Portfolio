@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import './Modal.css';
 import Draggable from 'react-draggable';
 
@@ -27,10 +27,25 @@ const Modal: React.FC<ModalProps> = ({
     onModalClick,
     style
 }) => {
+    const [isSmallScreen, setIsSmallScreen] = useState(window.innerWidth < 1700);
+
+    useEffect(() => {
+        const handleResize = () => {
+            setIsSmallScreen(window.innerWidth < 1700);
+        };
+
+        window.addEventListener('resize', handleResize);
+
+        return () => {
+            window.removeEventListener('resize', handleResize);
+        };
+    }, []);
 
     useEffect(() => {
         onModalClick(id);
     }, [show]);
+
+    const displayStyle = isSmallScreen && (title === "Livestream" || title === "Music") ? { display: "none" } : {};
 
     return (
         <Draggable
@@ -39,7 +54,7 @@ const Modal: React.FC<ModalProps> = ({
             defaultPosition={{ x: initialPosition?.left ?? 0, y: initialPosition?.top ?? 0 }}
             scale={1}
             >
-                <div className="modal-overlay" style={style} onClick={() => onModalClick(id)}>
+                <div className="modal-overlay" style={{ ...style, ...displayStyle }} onClick={() => onModalClick(id)}>
                     <div className="modal-header-container">
                         <div className="modal-header">
                             <div className="header-title">
