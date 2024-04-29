@@ -35,7 +35,7 @@ export default function Menu({ openVeigarv2Modal, openAgorarModal, openNomoreMod
                             </div>
                         </div>
                     </div>
-                    <div className='program'>
+                    <div className='program-programs'>
                         <img src={programsIcon} alt="Programs icon"/>
                         <span>Programs</span>
                         <div className="submenu">

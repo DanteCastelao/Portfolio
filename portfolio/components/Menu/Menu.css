@@ -79,6 +79,31 @@
     height: 60%;
 }
 
+.program-programs {
+    display: flex;
+    align-items: center;
+    color: #000;
+    padding-left: 10px;
+    gap: 10px;
+    height: 50px;
+    width: 150px;
+    cursor: pointer;
+}
+
+.program-programs span {
+    position: absolute;
+    left: 90px;
+}
+
+.program-programs:hover {
+    background-color: #0000A8;
+    color: #fff;
+}
+
+.program-programs img{
+    object-fit: contain;
+    height: 60%;
+}
 .submenu {
     display: none;
     position: absolute;
@@ -96,6 +121,10 @@
 
 .program:hover .submenu {
     display: block; 
+}
+
+.program-programs:hover .submenu {
+    display: block;
 }
 
 .sublist {
@@ -129,4 +158,10 @@
 .sublist div span {
     position: absolute;
     left: 50px;
+}
+
+@media screen and (max-width: 1700px){
+    .program-programs {
+        display: none;
+    }
 }
